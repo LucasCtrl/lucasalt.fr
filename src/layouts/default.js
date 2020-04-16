@@ -1,10 +1,12 @@
 import React from "react"
-import Header from "../components/header"
+import Nav from "../components/nav"
 import Footer from "../components/footer"
 
+import "../styles/main.scss"
+
 export default ({ children }) => (
-  <div>
-    <Header />
+  <div className="container">
+    <Nav />
     {children}
     <Footer />
   </div>
