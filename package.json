@@ -6,9 +6,11 @@
   "repository": "git@github.com:lucasctrl/lucasalt.fr",
   "dependencies": {
     "gatsby": "^2.20.12",
+    "gatsby-plugin-sass": "^2.2.1",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-remark": "^2.7.1",
     "lodash.kebabcase": "^4.1.1",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
