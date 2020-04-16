@@ -1,7 +1,18 @@
-html {
-  background-color: lavenderblush;
+/*! Minimalist
+ *  By LucasAlt
+ */
 
-  p {
-    color: green;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+// Configuration
+@import 'base/variables';
+@import 'base/mixins';
+
+// Reset
+@import 'base/reset';
+
+// Components
+@import 'components/scaffolding';
+@import 'components/nav';
+@import 'components/footer';
+@import 'components/layout';

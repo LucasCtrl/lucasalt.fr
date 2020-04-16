@@ -1,0 +1,27 @@
+/* Variables
+ * ===============
+ *
+ * All variables and most of the configuration is defined on this page. */
+
+/* Containers */
+
+$small: 700px;
+$medium: 900px;
+$large: 1040px;
+
+/* Breakpoints */
+
+$mobile: 620px;
+$tablet: $small;
+$desktop: $medium;
+
+/* Colors */
+
+$background: #ffffff;
+$text-primary: #000000;
+$text-secondary: #717171;
+
+/* Typography */
+
+// Body font
+$font-family: 'Poppins', serif;

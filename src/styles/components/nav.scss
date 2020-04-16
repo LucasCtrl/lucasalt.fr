@@ -1,0 +1,32 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-top: 50px;
+
+  .brand {
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  .links {
+    font-size: 18px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+
+      li {
+        margin-left: 40px;
+      }
+    }
+  }
+}

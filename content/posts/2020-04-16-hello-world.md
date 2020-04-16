@@ -1,6 +1,9 @@
 ---
 title: "Hello world!"
 date: "2020-04-16"
+category: "Blog"
+thumbnail: "../thumbnails/intra.png"
+hero: "../images/Intra.png"
 template: "post"
 ---
 
