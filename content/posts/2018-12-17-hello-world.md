@@ -2,7 +2,7 @@
 title: "Hello world!"
 category: "Blog"
 author: "Lucas Albert"
-date: "2020-04-16"
+date: "2018-12-17"
 thumbnail: "../thumbnails/writing-hand.png"
 hero: "../images/hello-world.jpg"
 source: "Vladislav Klapin"
@@ -16,4 +16,4 @@ Some simple words know by everyone in the IT sector. This website is here becaus
 
 What kind of thing you will find on this blog? I don't really know. Some "hacks" about a framework, some previews about my electronic projects, ...
 
-Anyway, welcome and happy reading!
+**Anyway, welcome and happy reading!**
