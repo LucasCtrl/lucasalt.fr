@@ -71,9 +71,27 @@
       margin: 0 0 20px;
       padding: 15px 30px;
 
-      background-color: $blockquote-background;
+      background-color: lighten($blockquote-background, 45%);
       border-radius: $blockquote-border-size;
-      border-left: $blockquote-border-size solid $blockquote-border-color;
+      border-left: $blockquote-border-size solid lighten($blockquote-background, 25%);
+
+      &.warning {
+        background-color: lighten($yellow, 25%);
+        border-radius: $blockquote-border-size;
+        border-left: $blockquote-border-size solid lighten($yellow, 10%);
+      }
+
+      &.success {
+        background-color: lighten($green, 45%);
+        border-radius: $blockquote-border-size;
+        border-left: $blockquote-border-size solid lighten($green, 20%);
+      }
+
+      &.error {
+        background-color: lighten($error, 40%);
+        border-radius: $blockquote-border-size;
+        border-left: $blockquote-border-size solid lighten($error, 10%);
+      }
 
       p {
         margin-bottom: 0;
