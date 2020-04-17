@@ -1,20 +1,4 @@
-.mainPage {
-  h1 {
-    font-size: 64px;
-    font-weight: 600;
-
-    &:not(:first-child) {
-      margin-top: -15px;
-    }
-  }
-
-  h2 {
-    color: $text-secondary;
-    font-size: 24px;
-  }
-}
-
-.blogPage {
+.posts {
   .post-card {
     padding: 25px;
 
@@ -63,7 +47,7 @@
       .post-excerpt {
         padding-left: 25px;
 
-        .read {
+        .post-read-more {
           margin-top: 15px;
           font-weight: 600;
         }

@@ -1,9 +1,12 @@
 ---
 title: "Hello world!"
-date: "2020-04-16"
 category: "Blog"
-thumbnail: "../thumbnails/intra.png"
-hero: "../images/Intra.png"
+author: "Lucas Albert"
+date: "2020-04-16"
+thumbnail: "../thumbnails/writing-hand.png"
+hero: "../images/hello-world.jpg"
+source: "Vladislav Klapin"
+sourceURL: "https://unsplash.com/@lemonvlad?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 template: "post"
 ---
 

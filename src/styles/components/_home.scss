@@ -1,0 +1,15 @@
+.home {
+  h1 {
+    font-size: 64px;
+    font-weight: 600;
+
+    &:not(:first-child) {
+      margin-top: -15px;
+    }
+  }
+
+  h2 {
+    color: $text-secondary;
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,97 @@
+.page {
+  .page-header {
+    margin: 50px 0;
+
+    .page-title {
+      font-size: 44px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      color: $text-secondary;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .page-decoration {
+    margin: 50px 0;
+
+    .page-informations {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin: 0 auto 30px;
+
+      max-width: 550px;
+
+      color: $text-secondary;
+    }
+
+    .page-hero {
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+
+      .hero-source {
+        color: $text-secondary;
+        font-size: 14px;
+        text-align: right;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .page-content {
+    margin: 0 auto;
+
+    max-width: 550px;
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: $link-color;
+      text-decoration: underline;
+    }
+
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+
+    blockquote {
+      margin: 0 0 20px;
+      padding: 15px 30px;
+
+      background-color: $blockquote-background;
+      border-radius: $blockquote-border-size;
+      border-left: $blockquote-border-size solid $blockquote-border-color;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .content {
+        margin-bottom: 10px;
+      }
+
+      .source {
+        color: $text-secondary;
+        font-size: 14px;
+
+        &::before {
+          content: "—";
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

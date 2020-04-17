@@ -12,7 +12,12 @@
 @import 'base/reset';
 
 // Components
-@import 'components/scaffolding';
+@import 'components/base';
 @import 'components/nav';
 @import 'components/footer';
-@import 'components/layout';
+
+// Page type
+@import 'components/_home'; // Home page
+@import 'components/_pages'; // Global SCSS for all pages
+@import 'components/_works'; // Specific SCSS for Work listing page
+@import 'components/_posts'; // Specific SCSS for Blog listing page
