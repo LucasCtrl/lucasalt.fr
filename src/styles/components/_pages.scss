@@ -55,6 +55,7 @@
 
     p {
       margin-bottom: 20px;
+      text-align: justify;
     }
 
     a {
@@ -69,7 +70,7 @@
 
     blockquote {
       margin: 0 0 20px;
-      padding: 15px 30px;
+      padding: 15px 30px 15px #{30px - $blockquote-border-size};
 
       background-color: lighten($blockquote-background, 45%);
       border-radius: $blockquote-border-size;

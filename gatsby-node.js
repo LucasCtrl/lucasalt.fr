@@ -45,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const postPage = path.resolve("src/templates/post.js")
     const workPage = path.resolve("src/templates/work.js")
+    const otherPage = path.resolve("src/templates/page.js")
 
     resolve(
       graphql(
@@ -85,6 +86,16 @@ exports.createPages = ({ graphql, actions }) => {
             createPage({
               path: edge.node.fields.slug,
               component: workPage,
+              context: {
+                slug: edge.node.fields.slug,
+              },
+            })
+          }
+
+          if (edge.node.frontmatter.template === "page") {
+            createPage({
+              path: edge.node.fields.slug,
+              component: otherPage,
               context: {
                 slug: edge.node.fields.slug,
               },
