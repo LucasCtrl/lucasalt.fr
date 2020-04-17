@@ -1,0 +1,51 @@
+.works {
+  .work-card {
+    border: 1px solid #F2F2F2;
+    box-sizing: border-box;
+    box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 3px;
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+
+    .work-header {
+      height: 350px;
+      background-color: #F2F2F2;
+      overflow: hidden;
+      text-align: center;
+
+
+      img {
+        position: relative;
+        top: 60px;
+
+        max-width: 80%;
+      }
+    }
+
+    .work-content {
+      padding: 25px 50px;
+
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      h3 {
+        color: $text-secondary;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .work-excerpt {
+        margin-top: 10px;
+      }
+
+      .work-details {
+        margin-top: 15px;
+        font-weight: 600;
+      }
+    }
+  }
+}
