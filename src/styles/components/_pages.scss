@@ -110,5 +110,13 @@
         }
       }
     }
+
+    code {
+      padding: 3px 5px;
+
+      font-family: "Source Code Pro", monospace;
+      background-color: lighten($code-background, 48%);
+      border-radius: 6px;
+    }
   }
 }
