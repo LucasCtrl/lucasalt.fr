@@ -36,6 +36,10 @@ $ yarn build
 $ yarn serve
 ```
 
+## 👀 How to use ...
+
+If you would like to know how to use each components, you can [see the little documentation](./documentation/README.md).
+
 ## 👤 Author
 
 **LucasAlt**
