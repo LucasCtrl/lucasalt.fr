@@ -1,15 +1,114 @@
 .home {
-  h1 {
-    font-size: 64px;
-    font-weight: 600;
+  .content {
+    margin-top: 30%;
 
-    &:not(:first-child) {
-      margin-top: -15px;
+    h1 {
+      font-size: 64px;
+      font-weight: 600;
+
+      &:not(:first-child) {
+        margin-top: -15px;
+      }
+    }
+
+    h2 {
+      color: $text-secondary;
+      font-size: 24px;
     }
   }
 
-  h2 {
-    color: $text-secondary;
-    font-size: 24px;
+  .background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: -1000;
+
+    .circle {
+      position: fixed;
+      top: 50%;
+
+      display: none;
+
+      height: 100%;
+      max-height: 200px;
+      width: 100%;
+      max-width: 200px;
+
+      background-image: url("../images/circle1.svg");
+      transform: translateX(-50%);
+    }
+
+    @include medium-breakpoint {
+      .circle {
+        display: block;
+      }
+    }
+
+    .vector1 {
+      position: fixed;
+      top: 15%;
+      left: 45%;
+
+      height: 100%;
+      max-height: 115px;
+      width: 100%;
+      max-width: 190px;
+
+      background-image: url("../images/vector1.svg");
+      transform: rotate(-45deg) scale(0.5);
+    }
+
+    @include medium-breakpoint {
+      .vector1 {
+        transform: rotate(-45deg) scale(1);
+      }
+    }
+
+    .vector2 {
+      position: fixed;
+      bottom: 5%;
+      right: 10%;
+
+      height: 100%;
+      max-height: 175px;
+      width: 100%;
+      max-width: 475px;
+
+      background-image: url("../images/vector2.svg");
+      transform: rotate(110deg) translateX(40%) scale(0.5);
+    }
+
+    @include medium-breakpoint {
+      .vector2 {
+        bottom: 0;
+        right: 30%;
+
+        transform: rotate(70deg) translateX(40%) scale(1);
+      }
+    }
+
+    .points {
+      position: fixed;
+      top: 40%;
+      right: 10%;
+
+      display: none;
+
+      height: 100%;
+      max-height: 260px;
+      width: 100%;
+      max-width: 140px;
+
+      background-image: url("../images/points.svg");
+    }
+
+    @include medium-breakpoint {
+      .points {
+        display: block;
+      }
+    }
   }
 }

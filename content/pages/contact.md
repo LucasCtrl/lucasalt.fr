@@ -11,7 +11,3 @@ I'm also a minimalist so don't be surprised if the website is a bit colorless ðŸ
 - Github: [LucasCtrl](https://github.com/LucasCtrl)
 - Twitter: [@LucasCtrlAlt](https://twitter.com/LucasCtrlAlt)
 - Ko-fi: [LucasAlt](https://ko-fi.com/LucasAlt)
-
-BTC
-
-BAT

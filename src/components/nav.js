@@ -1,10 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import logo from "../images/logo.svg"
 
 export default () => (
   <div className="nav">
     <div className=" brand">
-      <Link to="/">Logo</Link>
+      <Link to="/">
+        <img src={logo} alt="Logo"/>
+      </Link>
     </div>
     <div className="links">
       <ul>
