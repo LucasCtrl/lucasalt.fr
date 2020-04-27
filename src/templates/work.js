@@ -15,7 +15,7 @@ export default ({ data }) => {
         <div className="page-decoration">
           <div className="page-hero">
             <img
-              src={frontmatter.hero.publicURL}
+              src={frontmatter.hero.childImageSharp.fixed.src}
               alt={frontmatter.title + " hero"}
             />
           </div>
@@ -36,7 +36,11 @@ export const pageQuery = graphql`
         category
         title
         hero {
-          publicURL
+          childImageSharp {
+            fixed(width: 1280) {
+              src
+            }
+          }
         }
       }
       html

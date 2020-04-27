@@ -15,7 +15,7 @@ export default ({ data }) => (
               <div className="post-content">
                 <div className="post-thumbnail">
                   <img
-                    src={node.frontmatter.thumbnail.publicURL}
+                    src={node.frontmatter.thumbnail.childImageSharp.fixed.src}
                     alt={node.frontmatter.title + " image"}
                   />
                 </div>
@@ -49,7 +49,11 @@ export const query = graphql`
           frontmatter {
             title
             thumbnail {
-              publicURL
+              childImageSharp {
+                fixed(height: 150, width: 150) {
+                  src
+                }
+              }
             }
             category
           }

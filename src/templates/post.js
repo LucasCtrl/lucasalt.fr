@@ -33,7 +33,7 @@ export default ({ data }) => {
           </div>
           <div className="page-hero">
             <img
-              src={frontmatter.hero.publicURL}
+              src={frontmatter.hero.childImageSharp.fixed.src}
               alt={frontmatter.title + " hero"}
             />
             <div className="hero-source">
@@ -63,7 +63,11 @@ export const pageQuery = graphql`
         author
         date
         hero {
-          publicURL
+          childImageSharp {
+            fixed(width: 1280) {
+              src
+            }
+          }
         }
         source
         sourceURL

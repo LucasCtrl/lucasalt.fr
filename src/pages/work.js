@@ -14,7 +14,7 @@ export default ({ data }) => (
             <Link to={node.fields.slug}>
               <div className="work-header">
                 <img
-                  src={node.frontmatter.hero.publicURL}
+                  src={node.frontmatter.hero.childImageSharp.fixed.src}
                   alt={node.frontmatter.title + " hero"}
                 />
               </div>
@@ -45,7 +45,11 @@ export const query = graphql`
             title
             category
             hero {
-              publicURL
+              childImageSharp {
+                fixed(width: 1280) {
+                  src
+                }
+              }
             }
           }
           excerpt
