@@ -12,7 +12,7 @@ export default ({ data }) => (
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id} className="post-card">
             <Link to={node.fields.slug}>
-              <div className="post-content">
+              <div className="post-header">
                 <div className="post-thumbnail">
                   <img
                     src={node.frontmatter.thumbnail.childImageSharp.fixed.src}
@@ -23,7 +23,8 @@ export default ({ data }) => (
                   <h3>{node.frontmatter.category}</h3>
                   <h2>{node.frontmatter.title}</h2>
                 </div>
-                <div>{/* Empty box for the grid */}</div>
+              </div>
+              <div className="post-content">
                 <div className="post-excerpt">
                   <p>{node.excerpt}</p>
                   <p className="post-read-more">Read more →</p>

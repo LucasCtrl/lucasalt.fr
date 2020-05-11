@@ -9,14 +9,15 @@
       margin-bottom: 50px;
     }
 
-    .post-content {
+    .post-header {
       display: grid;
       gap: 0;
 
-      grid-template-rows: 75px auto;
+      grid-template-rows: 75px;
       grid-template-columns: 75px auto;
 
       padding: 25px;
+      padding-bottom: 0;
 
       .post-thumbnail {
         display: flex;
@@ -47,16 +48,25 @@
           font-weight: 400;
         }
       }
+    }
+
+    .post-content {
+      padding: 37.5px;
+      padding-top: 15px;
 
       .post-excerpt {
-        padding-left: 25px;
-        padding-right: 25px;
         text-align: justify;
 
         .post-read-more {
           margin-top: 15px;
           font-weight: 600;
         }
+      }
+    }
+
+    @include small-breakpoint {
+      .post-content {
+        padding-left: 125px;
       }
     }
   }
