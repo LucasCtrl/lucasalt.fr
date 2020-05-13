@@ -10,15 +10,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/content/`,
+        name: `assets`,
+        path: `${__dirname}/static/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images/`,
+        name: `posts`,
+        path: `${__dirname}/content/`,
       },
     },
     {
@@ -26,9 +26,6 @@ module.exports = {
       options: {
         excerpt_separator: `<!-- end -->`,
         plugins: [
-          {
-            resolve: `gatsby-remark-relative-images`,
-          },
           {
             resolve: `gatsby-remark-images`,
             options: {
