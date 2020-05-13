@@ -1,22 +1,29 @@
-import React from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
-import Layout from "../layouts/default"
 
-export default ({ data }) => {
-  const page = data.markdownRemark
-  return (
-    <Layout>
-      <div className="page">
-        <div className="page-header">
-          <h1 className="page-title">{page.frontmatter.title}</h1>
+import Layout from "../layouts/default"
+import SEO from "../components/SEO"
+
+export default class Page extends Component {
+  render() {
+    const { slug } = this.props.pageContext
+    const page = this.props.data.markdownRemark
+
+    return (
+      <Layout>
+        <SEO meta={page} urlPath={slug} seoType="page" />
+        <div className="page">
+          <div className="page-header">
+            <h1 className="page-title">{page.frontmatter.title}</h1>
+          </div>
+          <div
+            className="page-content"
+            dangerouslySetInnerHTML={{ __html: page.html }}
+          />
         </div>
-        <div
-          className="page-content"
-          dangerouslySetInnerHTML={{ __html: page.html }}
-        />
-      </div>
-    </Layout>
-  )
+      </Layout>
+    )
+  }
 }
 
 export const pageQuery = graphql`
