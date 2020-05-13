@@ -20,7 +20,7 @@ const SourceLink = props => {
 
 export default class Post extends Component {
   render() {
-    const { slug } = this.props.pathContext
+    const { slug } = this.props.pageContext
     const post = this.props.data.markdownRemark
     const frontmatter = post.frontmatter
     const date = formatDate(frontmatter.date)
