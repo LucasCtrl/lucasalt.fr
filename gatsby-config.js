@@ -38,5 +38,11 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: config.googleAnalyticsID,
+      },
+    },
   ],
 }
