@@ -1,9 +1,12 @@
 const path = require("path")
 const kebabCase = require("lodash.kebabcase")
+const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   let slug
+
+  fmImagesToRelative(node) // Change all images path to relative paths
 
   if (node.internal.type === "MarkdownRemark") {
     const fileNode = getNode(node.parent)
