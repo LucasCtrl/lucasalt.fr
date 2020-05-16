@@ -23,7 +23,7 @@ export default class BlogPosts extends Component {
           <div className="posts">
             {this.props.data.allMarkdownRemark.edges.map(({ node }) => (
               <div key={node.id} className="post-card">
-                <Link to={node.fields.slug}>
+                <Link to={"/blog" + node.fields.slug}>
                   <div className="post-header">
                     <div className="post-thumbnail">
                       <img
