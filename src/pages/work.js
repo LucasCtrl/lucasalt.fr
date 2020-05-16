@@ -22,7 +22,7 @@ export default class WorksList extends Component {
           <div className="works">
             {this.props.data.allMarkdownRemark.edges.map(({ node }) => (
               <div key={node.id} className="work-card">
-                <Link to={node.fields.slug}>
+                <Link to={"/work" + node.fields.slug}>
                   <div className="work-header">
                     <img
                       src={node.frontmatter.hero.childImageSharp.fixed.src}

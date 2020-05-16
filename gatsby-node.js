@@ -74,7 +74,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.allMarkdownRemark.edges.forEach(edge => {
           if (edge.node.frontmatter.template === "post") {
             createPage({
-              path: edge.node.fields.slug,
+              path: "/blog" + edge.node.fields.slug,
               component: postPage,
               context: {
                 slug: edge.node.fields.slug,
@@ -84,7 +84,7 @@ exports.createPages = ({ graphql, actions }) => {
 
           if (edge.node.frontmatter.template === "work") {
             createPage({
-              path: edge.node.fields.slug,
+              path: "/work" + edge.node.fields.slug,
               component: workPage,
               context: {
                 slug: edge.node.fields.slug,
