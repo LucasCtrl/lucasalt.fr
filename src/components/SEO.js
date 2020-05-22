@@ -46,6 +46,9 @@ export default class SEO extends Component {
         <meta name="author" content={author} />
         <meta name="description" content={description} />
 
+        {/* Web monetization */}
+        <meta name="monetization" content="$ilp.uphold.com/gzagLwDzUUdp">
+
         {/* Open Graph */}
         <meta property="og:locale" content="en-US" />
         <meta property="og:site_name" content={config.siteTitle} />
