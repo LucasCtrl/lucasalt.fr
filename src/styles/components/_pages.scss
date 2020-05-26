@@ -111,10 +111,12 @@
       }
     }
 
-    code {
+    code.language-text {
       padding: 3px 5px;
 
+      color: $text-primary;
       font-family: "Source Code Pro", monospace;
+
       background-color: lighten($code-background, 48%);
       border-radius: 6px;
     }
