@@ -4,6 +4,23 @@ import { graphql } from "gatsby"
 import Layout from "../layouts/default"
 import SEO from "../components/SEO"
 
+const HeroDecoration = props => {
+  if (props.frontmatter.hero !== null) {
+    return (
+      <div className="page-decoration">
+        <div className="page-hero">
+          <img
+            src={props.frontmatter.hero.childImageSharp.fixed.src}
+            alt={props.frontmatter.title + " hero"}
+          />
+        </div>
+      </div>
+    )
+  } else {
+    return null
+  }
+}
+
 export default class Work extends Component {
   render() {
     const { slug } = this.props.pageContext
@@ -18,14 +35,7 @@ export default class Work extends Component {
             <p className="page-subtitle">{frontmatter.category}</p>
             <h1 className="page-title">{frontmatter.title}</h1>
           </div>
-          <div className="page-decoration">
-            <div className="page-hero">
-              <img
-                src={frontmatter.hero.childImageSharp.fixed.src}
-                alt={frontmatter.title + " hero"}
-              />
-            </div>
-          </div>
+          <HeroDecoration frontmatter={frontmatter} />
           <div
             className="page-content"
             dangerouslySetInnerHTML={{ __html: work.html }}
