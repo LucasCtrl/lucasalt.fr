@@ -18,6 +18,28 @@ const SourceLink = props => {
   }
 }
 
+const HeroDecoration = props => {
+  if (props.frontmatter.hero !== null) {
+    return (
+      <div className="page-hero">
+        <img
+          src={props.frontmatter.hero.childImageSharp.fixed.src}
+          alt={props.frontmatter.title + " hero"}
+        />
+        <div className="hero-source">
+          Image by{" "}
+          <SourceLink
+            url={props.frontmatter.sourceURL}
+            text={props.frontmatter.source}
+          />
+        </div>
+      </div>
+    )
+  } else {
+    return null
+  }
+}
+
 export default class Post extends Component {
   render() {
     const { slug } = this.props.pageContext
@@ -38,19 +60,7 @@ export default class Post extends Component {
               <div className="page-auhor">{frontmatter.author}</div>
               <div className="page-date">{date}</div>
             </div>
-            <div className="page-hero">
-              <img
-                src={frontmatter.hero.childImageSharp.fixed.src}
-                alt={frontmatter.title + " hero"}
-              />
-              <div className="hero-source">
-                Image by{" "}
-                <SourceLink
-                  url={frontmatter.sourceURL}
-                  text={frontmatter.source}
-                />
-              </div>
-            </div>
+            <HeroDecoration frontmatter={frontmatter} />
           </div>
           <div
             className="page-content"
