@@ -3,7 +3,7 @@ title: "Contact"
 template: "page"
 ---
 
-Hi,  I’m Lucas Albert a 20 years old frontend developer based in Strasbourg, France. I work on various open-sources projects mainly with Node.js and Python.
+Hi,  I’m Lucas Albert a 21 years old frontend developer based in Strasbourg, France. I work on various open-sources projects mainly with Node.js and Python.
 I'm also a minimalist so don't be surprised if the website is a bit colorless 😉
 
 # Find me on the web
