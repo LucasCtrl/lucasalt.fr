@@ -34,6 +34,27 @@ p {
   padding: 0;
 }
 
+table {
+  border-color: grey;
+  border-spacing: 2px;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  margin: 0.8em auto 1.2em;
+  table-layout: fixed;
+}
+
+table th {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 5px 1vw;
+  background: #eef0f1;
+  text-align: left;
+}
+
+table td {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 5px 1vw;
+}
+
 // Base container
 .main {
   position: relative;
