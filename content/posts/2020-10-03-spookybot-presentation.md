@@ -1,5 +1,5 @@
 ---
-title: "SpookyBot, a open source Discord bot"
+title: "SpookyBot, an open source Discord bot"
 category: "Discord"
 author: "Lucas Albert"
 date: "2020-10-03"
