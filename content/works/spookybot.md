@@ -24,7 +24,7 @@ You just need to click on [this link](https://discord.com/oauth2/authorize?clien
 You can add languages to the robot so that it is translated and accessible to everyone!
 
 To do this, nothing could be simpler, just copy the file `./lang/en.js` then rename it following the [ISO 639-1 nomenclature](http://www.mathguide.de/info/tools/languagecode.html).
-Then you just need to modify the file as you wish. For the translation to be set up on the robot, do not hesitate to open a pull request by [following this guide](https://github.com/LucasCtrl/spookyBot/blob/main/README.md#-contributing).
+Then you just need to modify the file as you wish. For the translation to be set up on the robot, do not hesitate to open a pull request by [following this guide](https://github.com/start-again/spookyBot/blob/main/README.md#-contributing).
 
 To react to a word, you need two elements in the translation file: the word and the emoji with which it will react.
 
@@ -39,4 +39,4 @@ You can see that the `emoji` element is an emoji, but you can also use a custom 
 
 ## 📝 License
 
-This project is open source and available under the [MIT](https://github.com/LucasCtrl/spookyBot/blob/master/LICENSE)
+This project is open source and available under the [MIT](https://github.com/start-again/spookyBot/blob/master/LICENSE)
