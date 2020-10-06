@@ -41,4 +41,4 @@ Almost everything!
 Seriously, you can help me translate the robot into different languages or add new words and emojis to the list. Otherwise, you can help me add some cool commands to make the robot more fun to use!
 
 # How to contribute?
-Nothing simpler, just follow the contribution guide on the [GitHub repository](https://github.com/LucasCtrl/spookyBot).
+Nothing simpler, just follow the contribution guide on the [GitHub repository](https://github.com/start-again/spookyBot).
