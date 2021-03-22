@@ -4,21 +4,6 @@ import { Link, graphql } from "gatsby"
 import Layout from "../layouts/default"
 import SEO from "../components/SEO"
 
-const HeroDecoration = props => {
-  if (props.frontmatter.hero !== null) {
-    return (
-      <div className="work-header">
-        <img
-          src={props.frontmatter.hero.childImageSharp.fixed.src}
-          alt={props.frontmatter.title + " hero"}
-        />
-      </div>
-    )
-  } else {
-    return null
-  }
-}
-
 export default class WorksList extends Component {
   render() {
     const meta = {
@@ -34,7 +19,7 @@ export default class WorksList extends Component {
           <div className="page-header">
             <h1 className="page-title">Work</h1>
           </div>
-          <div className="works">
+          {/* <div className="works">
             {this.props.data.allMarkdownRemark.edges.map(({ node }) => (
               <div key={node.id} className="work-card">
                 <Link to={"/work" + node.fields.slug}>
@@ -46,6 +31,33 @@ export default class WorksList extends Component {
                     <p className="work-details">Details →</p>
                   </div>
                 </Link>
+              </div>
+            ))}
+          </div> */}
+          <div className="posts">
+            {this.props.data.allMarkdownRemark.edges.map(({ node }) => (
+              <div key={node.id} className="post-card">
+                <a
+                  href={node.frontmatter.link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <div className="post-header">
+                    <div className="post-thumbnail">
+                      <span className="emoji">{node.frontmatter.emoji}</span>
+                    </div>
+                    <div className="post-title">
+                      <h3>{node.frontmatter.category}</h3>
+                      <h2>{node.frontmatter.title}</h2>
+                    </div>
+                  </div>
+                  <div className="post-content">
+                    <div className="post-excerpt">
+                      <p>{node.excerpt}</p>
+                      <p className="post-read-more">{node.frontmatter.cta} →</p>
+                    </div>
+                  </div>
+                </a>
               </div>
             ))}
           </div>
@@ -67,13 +79,9 @@ export const query = graphql`
           frontmatter {
             title
             category
-            hero {
-              childImageSharp {
-                fixed(width: 1280) {
-                  src
-                }
-              }
-            }
+            emoji
+            link
+            cta
           }
           excerpt
           fields {
