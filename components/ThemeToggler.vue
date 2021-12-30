@@ -2,7 +2,7 @@
   <div @click="toggleTheme">
     <!-- moon -->
     <svg
-      v-if="!$store.state.theme.isDark"
+      v-show="!$store.state.theme.isDark"
       xmlns="http://www.w3.org/2000/svg"
       class="h-8 w-8 hover:text-indigo-800 hover:fill-current"
       fill="none"
@@ -18,7 +18,7 @@
     </svg>
     <!-- Sun -->
     <svg
-      v-if="$store.state.theme.isDark"
+      v-show="$store.state.theme.isDark"
       xmlns="http://www.w3.org/2000/svg"
       class="h-8 w-8 hover:text-yellow-400 hover:fill-current"
       fill="none"
