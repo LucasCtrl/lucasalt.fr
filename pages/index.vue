@@ -13,7 +13,7 @@
     </div>
     <div class="mt-[15%] text-xl space-y-4 text-justify">
       <p>
-        22 years old French web developer with more than five years of
+        A 22 years old French web developer with more than five years of
         experience, I develop web applications and I am specialised in the
         development of ergonomic and minimalist interfaces.
       </p>
@@ -37,24 +37,23 @@
         keyboard area.
       </p>
       <p>
-        I'm also working on
+        I am also working on the library
         <a
           href="#"
           target="_blank"
           rel="noopener noreferrer"
           class="text-green-600 hover:underline font-semibold"
           >CanvasMe</a
-        >
-        library. A library for creating canvas in a simplified way. In parallel
-        I maintain
+        >. A library for creating canvas in a simplified way. In parallel I
+        maintain
         <a
           href="https://github.com/lucasctrl/spookybot"
           target="_blank"
           rel="noopener noreferrer"
           class="text-orange-600 hover:underline font-semibold"
           >SpookyBot</a
-        >, a little terror that comes to scare you on your Discord server.
-        Project initiated during the Hacktoberfest 2020.
+        >, a little terror that comes to scare you on your Discord server. A
+        project initiated during the Hacktoberfest 2020.
       </p>
     </div>
   </div>
