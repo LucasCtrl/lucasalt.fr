@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between items-center py-12">
     <div>
-      <NuxtLink to="/">
+      <NuxtLink to="/" aria-label="Home">
         <Logo />
       </NuxtLink>
     </div>
