@@ -26,7 +26,7 @@ export default {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
 
-      name: '',
+      name: 'LucasAlt | Personal website',
       author: 'LucasAlt',
       description:
         'Web developer, UI/UX designer, minimalist, i leave my mark on this immense web that is the internet.',
@@ -35,12 +35,12 @@ export default {
 
       // Open Graph
       ogType: 'website',
-      // ogSiteName: '' // Retreive 'name' by default
-      // ogTitle: '' // Retreive 'name' by default
-      // ogDescription: '' // Retreive 'description' by default
+      // ogSiteName: '', // Retreive 'name' by default
+      // ogTitle: '', // Retreive 'name' by default
+      // ogDescription: '', // Retreive 'description' by default
       ogHost: 'https://lucasalt.fr', // Domain where the icon is hosted
       ogImage: true, // Use app icon
-      // ogUrl // Same as 'ogHost'
+      // ogUrl: '', // Same as 'ogHost'
 
       // Twitter
       twitterCard: 'summary', // Twitter card type
