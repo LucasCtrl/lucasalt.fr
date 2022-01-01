@@ -19,7 +19,7 @@ export default {
 
   buildModules: ['@nuxt/postcss8', '@nuxtjs/eslint-module'],
 
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', '@nuxt/content'],
 
   pwa: {
     meta: {

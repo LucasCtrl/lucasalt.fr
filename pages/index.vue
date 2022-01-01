@@ -7,7 +7,7 @@
           >Lucas ALBERT</span
         >
       </h1>
-      <h1 class="pt-4 text-2xl text-gray-600 dark:text-gray-500">
+      <h1 class="pt-4 text-2xl text-slate-600 dark:text-slate-500">
         Web developer / Maker / Love to play video games
       </h1>
     </div>

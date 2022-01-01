@@ -3,7 +3,7 @@
     class="min-h-screen relative text-black bg-gray-50 dark:text-white dark:bg-gray-900"
   >
     <div
-      class="h-full container mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl 2xl:max-w-6xl px-8 sm:px-0 pb-28"
+      class="h-full mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl 2xl:max-w-6xl px-8 sm:px-0 pb-28"
     >
       <NavBar />
       <Nuxt />
