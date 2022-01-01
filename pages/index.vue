@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mt-[15%]">
+    <div class="mt-[10%]">
       <h1 class="text-5xl font-semibold">
         Hey, I'm <br />
         <span class="text-blue-700 dark:text-blue-600 font-bold"
@@ -11,7 +11,7 @@
         Web developer / Maker / Love to play video games
       </h1>
     </div>
-    <div class="mt-[15%] text-xl space-y-4 text-justify">
+    <div class="mt-[10%] text-xl space-y-4 text-justify">
       <p>
         A 22 years old French web developer with more than five years of
         experience, I develop web applications and I am specialised in the
@@ -56,12 +56,21 @@
         project initiated during the Hacktoberfest 2020.
       </p>
     </div>
+    <div class="mt-[10%]">
+      <SocialButtons />
+    </div>
+    <!-- <div class="mt-[10%]">
+      <hr class="border-t-2 border-slate-200 dark:border-slate-800" />
+    </div> -->
   </div>
 </template>
 
 <script>
+import SocialButtons from '@/components/SocialButtons.vue'
+
 export default {
   name: 'IndexPage',
+  components: { SocialButtons },
   layout: 'default',
 }
 </script>
