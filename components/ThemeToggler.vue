@@ -41,7 +41,9 @@ export default {
 
   methods: {
     toggleTheme() {
-      this.$store.state.theme.isDark ? this.$store.commit('theme/lightModeOn') : this.$store.commit('theme/darkModeOn')
+      this.$store.state.theme.isDark
+        ? this.$store.commit('theme/lightModeOn')
+        : this.$store.commit('theme/darkModeOn')
     },
   },
 }

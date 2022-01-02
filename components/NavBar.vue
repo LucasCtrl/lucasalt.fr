@@ -5,7 +5,8 @@
         <Logo />
       </NuxtLink>
     </div>
-    <div>
+    <div class="flex items-center space-x-8 text-xl">
+      <NuxtLink to="/blog/" aria-label="Blog"> Blog </NuxtLink>
       <ThemeToggler />
     </div>
     <!-- <div>
