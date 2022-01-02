@@ -2,7 +2,7 @@ ata
 <template>
   <figure class="flex flex-col m-auto">
     <img
-      :src="`../../_nuxt/assets/img/blog/${$route.params.slug}/${imgName}`"
+      :src="`/img/blog/${$route.params.slug}/${imgName}.png`"
       :alt="altText"
       class="rounded-md"
     />

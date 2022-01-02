@@ -1,7 +1,9 @@
 <template>
   <div>
     <div>
-      <p class="text-center text-slate-600 dark:text-slate-500">Blog</p>
+      <p class="text-center text-slate-600 dark:text-slate-500">
+        {{ blogPost.category }}
+      </p>
       <h1 class="text-center text-5xl font-semibold leading-normal">
         {{ blogPost.title }}
       </h1>
@@ -10,11 +12,11 @@
           class="flex justify-between mx-auto mb-6 sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-slate-600 dark:text-slate-500"
         >
           <div>{{ blogPost.author }}</div>
-          <div>{{ formatDate(blogPost.createdAt) }}</div>
+          <div>{{ formatDate(blogPost.date) }}</div>
         </div>
         <img
           v-if="blogPost.headerImage"
-          :src="require(`~/assets/img/blog/${blogPost.slug}/header.jpg`)"
+          :src="`/img/blog/${blogPost.slug}/header.png`"
           :alt="blogPost.title + ' header image'"
           class="rounded-md"
         />
@@ -77,6 +79,14 @@ export default {
 
 .nuxt-content p {
   @apply text-base text-justify mb-6;
+}
+
+.nuxt-content a {
+  @apply text-base text-blue-700 dark:text-blue-500 underline;
+}
+
+.nuxt-content code {
+  @apply font-mono px-1 bg-slate-200 dark:bg-slate-700 rounded;
 }
 
 .nuxt-content figure {
