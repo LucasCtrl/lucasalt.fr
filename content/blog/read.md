@@ -32,7 +32,7 @@ The application allows you to track and group these feeds in the same place so y
 Read wants to be *user friendly* so adding RSS and Atom feeds is simplified. You can add a feed without knowing the link(s) assigned to it. For example, the news site **The Verge**, has a list of more than 40 feeds. By using the search bar, you can choose which feed you want to subscribe to. However, if you wish to add a feed via a link, you can do it by entering it in the same search bar. For example, for The Verge's main RSS feed, the link is `https://www.theverge.com/rss/index.xml`. You can find a [list of all the feeds on their website](https://www.theverge.com/2012/1/25/2732963/verge-rss-feeds).
 <!-- For my part, if you want to subscribe to my site's feed, you just need to add the following link `https://lucasalt.fr/feed/`. -->
 
-<image-component img-name="add-feed" alt-text="Add feed"></image-component>
+<image-component img-name="add-feed.png" alt-text="Add feed"></image-component>
 
 Once you have subscribed to one or more feeds, you can follow them in several ways. The first way is to group all the articles in all the feeds, whether or not they are read. The second way groups all the unread articles in all the feeds. The last one allows you to follow a particular feed by grouping together read and unread articles.
 
