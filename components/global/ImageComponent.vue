@@ -1,7 +1,7 @@
 <template>
   <figure class="flex flex-col m-auto">
     <img
-      :src="`/img/blog/${$route.params.slug}/${imgName}.png`"
+      :src="`/img/blog/${$route.params.slug}/${imgName}`"
       :alt="altText"
       class="rounded-md"
     />

@@ -1,10 +1,15 @@
 <template>
   <blockquote :class="`rounded ${blockquoteClasses}`">
     <div>
-      <p class="font-bold"><slot name="title"></slot></p>
+      <p v-if="$scopedSlots.title" class="font-bold">
+        <slot name="title"></slot>
+      </p>
       <p><slot name="content"></slot></p>
     </div>
-    <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">
+    <p
+      v-if="$scopedSlots.source"
+      class="mt-2 text-sm text-slate-700 dark:text-slate-300"
+    >
       <slot name="source"></slot>
     </p>
   </blockquote>

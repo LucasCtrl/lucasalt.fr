@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <p class="ml-0 sm:ml-20 mt-4">{{ post.description }}</p>
+        <p class="ml-0 sm:ml-20 mt-4 text-justify">{{ post.description }}</p>
         <div
           class="ml-0 sm:ml-20 mt-4 flex justify-between text-sm text-slate-600 dark:text-slate-500"
         >

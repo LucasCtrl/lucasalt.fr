@@ -14,22 +14,23 @@
           <div>{{ blogPost.author }}</div>
           <div>{{ formatDate(blogPost.date) }}</div>
         </div>
-        <img
-          v-if="blogPost.headerImage"
-          :src="`/img/blog/${blogPost.slug}/header.png`"
-          :alt="blogPost.title + ' header image'"
-          class="rounded-md"
-        />
-        <div class="mt-1 text-right text-slate-600 dark:text-slate-500">
-          Image by
-          <a
-            v-if="blogPost.sourceURL"
-            :href="blogPost.sourceURL"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline"
-            >{{ blogPost.source }}</a
-          ><span v-else>{{ blogPost.source }}</span>
+        <div v-if="blogPost.headerImage">
+          <img
+            :src="`/img/blog/${blogPost.slug}/header.png`"
+            :alt="blogPost.title + ' header image'"
+            class="rounded-md"
+          />
+          <div class="mt-1 text-right text-slate-600 dark:text-slate-500">
+            Image by
+            <a
+              v-if="blogPost.sourceURL"
+              :href="blogPost.sourceURL"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline"
+              >{{ blogPost.source }}</a
+            ><span v-else>{{ blogPost.source }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -63,20 +64,21 @@ export default {
 .nuxt-content h2,
 .nuxt-content h3,
 .nuxt-content p,
-.nuxt-content blockquote {
+.nuxt-content blockquote,
+.nuxt-content table {
   @apply mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl;
 }
 
 .nuxt-content h1 {
-  @apply text-4xl font-bold;
+  @apply text-4xl font-bold leading-normal;
 }
 
 .nuxt-content h2 {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold leading-normal;
 }
 
 .nuxt-content h3 {
-  @apply text-xl font-bold;
+  @apply text-xl font-bold leading-normal;
 }
 
 .nuxt-content p {
@@ -101,5 +103,17 @@ export default {
 
 .nuxt-content blockquote p {
   @apply text-base text-justify mb-0;
+}
+
+.nuxt-content table {
+  @apply border border-slate-200 border-collapse box-border table-fixed mb-6;
+}
+
+.nuxt-content table th {
+  @apply border bg-slate-100 px-2 py-1 text-left;
+}
+
+.nuxt-content table td {
+  @apply border px-2 py-1;
 }
 </style>
