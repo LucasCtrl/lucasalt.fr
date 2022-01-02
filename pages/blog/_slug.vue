@@ -23,12 +23,13 @@
         <div class="mt-1 text-right text-slate-600 dark:text-slate-500">
           Image by
           <a
+            v-if="blogPost.sourceURL"
             :href="blogPost.sourceURL"
             target="_blank"
             rel="noopener noreferrer"
             class="underline"
             >{{ blogPost.source }}</a
-          >
+          ><span v-else>{{ blogPost.source }}</span>
         </div>
       </div>
     </div>
@@ -61,7 +62,8 @@ export default {
 .nuxt-content h1,
 .nuxt-content h2,
 .nuxt-content h3,
-.nuxt-content p {
+.nuxt-content p,
+.nuxt-content blockquote {
   @apply mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl;
 }
 
@@ -91,5 +93,13 @@ export default {
 
 .nuxt-content figure {
   @apply text-base mb-6;
+}
+
+.nuxt-content blockquote {
+  @apply px-8 py-4 mb-6;
+}
+
+.nuxt-content blockquote p {
+  @apply text-base text-justify mb-0;
 }
 </style>

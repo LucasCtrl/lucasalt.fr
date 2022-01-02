@@ -1,4 +1,3 @@
-ata
 <template>
   <figure class="flex flex-col m-auto">
     <img
