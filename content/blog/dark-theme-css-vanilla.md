@@ -7,7 +7,19 @@ headerImage: true
 source: "Lucas Albert"
 ---
 
-```html
+At the beginning, light-on-dark scheme (dark mode) was a standard due to hardware limitation, then dark-on-light scheme (light mode) came up to have a similar look that ink on paper and became the norm. Since 2018-2019, dark mode was reintroduced by some designers and by a new CSS property.
+
+<!--more-->
+
+Now, most of the web offer you to select your theme as well as your OS and this feature became a standard.
+
+I this post, I'm gonna implement a theme detector as well as a theme toggler. The theme detector will detect the theme that the user is currently using on it's browser or it's OS when the user visit the website for the first time. The theme toggler will allow the user to switch from one theme to another. To enhance the user experience, the active theme will be stored in the local storage. That will allow the browser to remember the last theme that the user used the last time he visit the website.
+
+## HTML
+
+Nothing fancy here, I create a simple page with Emmet. I just include an import for my CSS and my JS. The button will be my switch to change the theme.
+
+```html [index.html]
 <html>
   <head>
     <title>Dark theme implementation</title>
@@ -22,7 +34,9 @@ source: "Lucas Albert"
 </html>
 ```
 
-```css - main.css
+## CSS
+
+```css [main.css]
 :root {
   --background: #f9fafb; /* White-Light blue */
   --heading: #1d4ed8; /* Dark blue */
@@ -54,7 +68,9 @@ p {
 }
 ```
 
-```js - app.js
+## JS
+
+```js [app.js]
 // Turn dark mode on
 function darkThemeOn() {
   localStorage.theme = "dark";
