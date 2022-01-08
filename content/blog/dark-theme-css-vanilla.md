@@ -17,7 +17,7 @@ I this post, I'm gonna implement a theme detector as well as a theme toggler. Th
 
 ## HTML
 
-Nothing fancy here, I create a simple page with Emmet. I just include an import for my CSS and my JS. The button will be my switch to change the theme.
+Nothing fancy here, I created a simple page with Emmet. I just included an import for my CSS and my JS. The button will be my switch to change the theme.
 
 ```html [index.html]
 <html>
@@ -36,6 +36,42 @@ Nothing fancy here, I create a simple page with Emmet. I just include an import 
 
 ## CSS
 
+Working with variables
+`:root` variables for default theme (in this case, white)
+`.dark-theme` change variables value (in this case, dark)
+
+```css
+:root {
+  --background: #f9fafb; /* White-Light blue */
+  --heading: #1d4ed8; /* Dark blue */
+  --content: #000000; /* Black */
+}
+
+.dark-theme {
+  --background: #111827; /* Black-Dark blue */
+  --heading: #3b82f6; /* Light blue */
+  --content: #ffffff; /* White */
+}
+```
+
+Apply those variable to the content.
+By default, white theme, if class `dark-theme` applied in one of the parent element (`html`, `body`), all value in `:root` are replaced by the values defined in `dark-theme`. If unapplied, restore to default.
+
+```css
+body {
+  background-color: var(--background);
+}
+
+h1 {
+  color: var(--heading);
+}
+
+p {
+  color: var(--content);
+}
+```
+
+Full css with some reset and fancy font.
 ```css [main.css]
 :root {
   --background: #f9fafb; /* White-Light blue */
@@ -69,6 +105,34 @@ p {
 ```
 
 ## JS
+
+Now CSS and HTML are created, need to change the theme by clicking a button or by checking default OS/browser theme.
+
+Can check default user theme with
+```js
+window.matchMedia("(prefers-color-scheme: dark)").matches // True or False
+```
+
+Store the theme in localStorage, able the website to load previous theme configuration.
+In this case, key `theme`, value `dark` or `light` depending the activated theme.
+
+
+First thing, get default theme for OS/browser or previous theme configuration
+```js
+function getCurrentTheme() {
+  if (
+    localStorage.theme == "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    // Apply "dark" theme if
+    // - previous visit was on dark theme
+    // - OS/Browser theme is dark
+  } else {
+    // Apply "light" theme
+  }
+}
+```
 
 ```js [app.js]
 // Turn dark mode on
