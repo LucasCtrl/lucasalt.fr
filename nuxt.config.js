@@ -11,7 +11,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['./assets/css/main.css'],
+  css: ['./assets/css/main.css', './assets/css/prism-rose-pine.css'],
 
   plugins: [],
 

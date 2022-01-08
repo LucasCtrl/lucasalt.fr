@@ -65,7 +65,9 @@ export default {
 .nuxt-content h3,
 .nuxt-content p,
 .nuxt-content blockquote,
-.nuxt-content table {
+.nuxt-content table,
+.nuxt-content ol,
+.nuxt-content ul {
   @apply mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl;
 }
 
@@ -87,10 +89,6 @@ export default {
 
 .nuxt-content a {
   @apply text-base text-blue-700 dark:text-blue-500 underline;
-}
-
-.nuxt-content code {
-  @apply font-mono px-1 bg-slate-200 dark:bg-slate-700 rounded;
 }
 
 .nuxt-content figure {
@@ -115,5 +113,30 @@ export default {
 
 .nuxt-content table td {
   @apply border px-2 py-1;
+}
+
+.nuxt-content ol > li,
+.nuxt-content ul > li {
+  @apply ml-8;
+}
+
+.nuxt-content ol {
+  @apply list-decimal mb-6;
+}
+
+.nuxt-content ul {
+  @apply list-disc mb-6;
+}
+
+.nuxt-content-highlight {
+  @apply mb-6 rounded overflow-hidden text-[#575279] dark:text-[#e0def4] bg-[#faf4ed] dark:bg-[#191724] selection:bg-[#eee9e6] dark:selection:bg-[#2a2837] border border-[#6e6a86] border-opacity-80 dark:border-opacity-60;
+}
+
+.nuxt-content-highlight .filename {
+  @apply px-4;
+}
+
+.nuxt-content pre {
+  @apply m-0 px-4 py-2 first:border-none border-t border-[#6e6a86] border-opacity-80 dark:border-opacity-60;
 }
 </style>

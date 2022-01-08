@@ -1,0 +1,148 @@
+/**
+ * MIT License
+ * Rosé Pine Theme
+ * https://github.com/rose-pine
+ * Ported for PrismJS by fvrests [@fvrests]
+ */
+
+/* Code blocks */
+.nuxt-content code[class*='language-'],
+.nuxt-content pre[class*='language-'] {
+  @apply font-mono font-semibold text-[#575279] dark:text-[#e0def4] bg-[#faf4ed] dark:bg-[#191724] selection:bg-[#eee9e6] dark:selection:bg-[#2a2837];
+  text-shadow: none;
+}
+
+/* Inline code */
+.nuxt-content p > code {
+  @apply px-1 font-mono text-[#575279] dark:text-[#e0def4] bg-[#faf4ed] dark:bg-[#191724] selection:bg-[#eee9e6] dark:selection:bg-[#2a2837] rounded;
+}
+
+/* Text style & opacity */
+.nuxt-content .token.entity {
+  @apply cursor-help;
+}
+
+.nuxt-content .token.important,
+.nuxt-content .token.bold {
+  @apply font-bold;
+}
+
+/* .nuxt-content .token.italic, */
+.nuxt-content .token.selector,
+.nuxt-content .token.doctype,
+.nuxt-content .token.attr-name,
+.nuxt-content .token.inserted,
+.nuxt-content .token.deleted,
+.nuxt-content .token.comment,
+.nuxt-content .token.prolog,
+.nuxt-content .token.cdata,
+.nuxt-content .token.constant,
+.nuxt-content .token.parameter,
+.nuxt-content .token.url {
+  @apply italic;
+}
+
+.nuxt-content .token.url {
+  @apply underline;
+}
+
+.namespace {
+  @apply opacity-70;
+}
+
+/* Syntax highlighting */
+.nuxt-content .token.constant {
+  @apply text-[#575279] dark:text-[#e0def4];
+}
+
+.nuxt-content .token.comment,
+.nuxt-content .token.prolog,
+.nuxt-content .token.cdata,
+.nuxt-content .token.punctuation {
+  @apply text-[#9893a5] dark:text-[#555169];
+}
+
+.nuxt-content .token.delimiter,
+.nuxt-content .token.important,
+.nuxt-content .token.atrule,
+.nuxt-content .token.operator,
+.nuxt-content .token.keyword {
+  @apply text-[#286983] dark:text-[#31748f] bg-inherit;
+}
+
+.nuxt-content .token.tag,
+.nuxt-content .token.tag .punctuation,
+.nuxt-content .token.doctype,
+.nuxt-content .token.variable,
+.nuxt-content .token.regex,
+.nuxt-content .token.class-name,
+.nuxt-content .token.selector,
+.nuxt-content .token.inserted {
+  @apply text-[#56949f] dark:text-[#9ccfd8];
+}
+
+.nuxt-content .token.boolean,
+.nuxt-content .token.entity,
+.nuxt-content .token.number,
+.nuxt-content .token.symbol,
+.nuxt-content .token.function {
+  @apply text-[#d7827e] dark:text-[#ebbcba];
+}
+
+.nuxt-content .token.string,
+.nuxt-content .token.char,
+.nuxt-content .token.property,
+.nuxt-content .token.attr-value,
+.nuxt-content .token.attr-value .punctuation {
+  @apply text-[#ea9d34] dark:text-[#f6c177];
+}
+
+.nuxt-content .token.parameter,
+.nuxt-content .token.url,
+.nuxt-content .token.name,
+.nuxt-content .token.attr-name,
+.nuxt-content .token.builtin {
+  @apply text-[#907aa9] dark:text-[#c4a7e7];
+}
+
+.nuxt-content .token.deleted {
+  @apply text-[#b4637a] dark:text-[#eb6f92];
+}
+
+/* Insertions & deletions */
+.nuxt-content .token.inserted {
+  @apply bg-[#56949f] dark:bg-[#9ccfd8] opacity-90;
+}
+
+.nuxt-content .token.deleted {
+  @apply bg-[#b4637a] dark:bg-[#eb6f92] opacity-90;
+}
+
+/* Line highlighting */
+/* pre[data-line] {
+  position: relative;
+}
+
+pre[class*='language-'] > code[class*='language-'] {
+  position: relative;
+  z-index: 1;
+}
+
+.line-highlight,
+.highlight-lines .highlighted {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+
+  background: #eee9e6;
+  box-shadow: inset 5px 0 0 #575279;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  line-height: inherit;
+  white-space: pre;
+} */
