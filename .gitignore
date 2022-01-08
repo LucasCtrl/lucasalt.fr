@@ -88,3 +88,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Test blog post
+content/blog/test.md

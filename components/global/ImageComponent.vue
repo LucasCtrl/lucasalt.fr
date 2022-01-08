@@ -1,10 +1,6 @@
 <template>
   <figure class="flex flex-col m-auto">
-    <img
-      :src="`/img/blog/${$route.params.slug}/${imgName}`"
-      :alt="altText"
-      class="rounded-md"
-    />
+    <img :src="image" :alt="altText" class="rounded-md" />
     <caption class="text-sm">
       {{
         altText
@@ -27,6 +23,16 @@ export default {
       default: null,
       required: true,
     },
+  },
+
+  data: () => ({
+    image: '',
+  }),
+
+  mounted() {
+    if (this.imgName.includes('https://') || this.imgName.includes('http://'))
+      this.image = this.imgName
+    else this.image = `/img/blog/${this.$route.params.slug}/${this.imgName}`
   },
 }
 </script>
