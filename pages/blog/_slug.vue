@@ -104,15 +104,15 @@ export default {
 }
 
 .nuxt-content table {
-  @apply border border-slate-200 border-collapse box-border table-fixed mb-6;
+  @apply border border-slate-200 dark:border-slate-700 border-collapse box-border table-fixed mb-6;
 }
 
 .nuxt-content table th {
-  @apply border bg-slate-100 px-2 py-1 text-left;
+  @apply border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-1 text-left;
 }
 
 .nuxt-content table td {
-  @apply border px-2 py-1;
+  @apply border border-slate-200 dark:border-slate-700 px-2 py-1;
 }
 
 .nuxt-content ol > li,
@@ -134,6 +134,10 @@ export default {
 
 .nuxt-content-highlight .filename {
   @apply px-4;
+}
+
+.nuxt-content-highlight .language-css .token.string {
+  background: none;
 }
 
 .nuxt-content pre {
