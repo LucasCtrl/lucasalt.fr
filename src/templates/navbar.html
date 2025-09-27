@@ -1,0 +1,9 @@
+<header>
+  <ul>
+    {% for link in links %}
+      <li>
+        <a href="{{ link.uri }}">{{ link.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</header>

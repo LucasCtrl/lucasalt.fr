@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% render 'head' %}
+  </head>
+  <body>
+    <div class="container">
+      {% render 'navbar', links: links %}
+      {{ page_content }}
+    </div>
+  </body>
+</html>

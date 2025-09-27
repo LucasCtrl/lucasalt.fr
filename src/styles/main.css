@@ -1,0 +1,40 @@
+body {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  font-family:
+		ui-monospace,
+		SFMono-Regular,
+		Consolas,
+		'Liberation Mono',
+		Menlo,
+		monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+a {
+  color: #89b4fa;
+  text-decoration: none;
+  border-bottom: 1px dashed #89b4fa;
+}
+
+a:hover {
+  font-weight: 600;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+header > ul {
+  padding: 0;
+  list-style: none;
+}
+
+header > ul > li {
+  display: inline;
+}
+
+header > ul > li:not(:last-child)::after {
+  content: '·'
+}
