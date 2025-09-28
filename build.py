@@ -51,6 +51,7 @@ def createPages(outputFolder):
 
   for page in getPages():
     pageUri = page['uri']
+    pageTitle = page['title']
     pageContent = markdown.convert(page['content'])
 
     if not os.path.exists(f'dist/{pageUri}'):
@@ -58,7 +59,7 @@ def createPages(outputFolder):
 
     log(f'Creating {pageUri}/index.html')
     with open(f'{outputFolder}/{pageUri}/index.html', 'w') as file:
-      file.write(template.render(pageContent=pageContent))
+      file.write(template.render(pageContent=pageContent, title=pageTitle))
 
 # Generate posts pages
 def createPostsPage(outputFolder):
@@ -67,6 +68,7 @@ def createPostsPage(outputFolder):
 
   for post in getPosts():
     postUri = post['uri']
+    postTitle = post['title']
     postContent = markdown.convert(post['content'])
 
     if not os.path.exists(f'dist/{postUri}'):
@@ -74,7 +76,7 @@ def createPostsPage(outputFolder):
 
     log(f'Creating {postUri}/index.html')
     with open(f'{outputFolder}/{postUri}/index.html', 'w') as file:
-      file.write(template.render(postContent=postContent))
+      file.write(template.render(postContent=postContent, title=postTitle))
 
 def main():
   outputFolder = 'dist'
