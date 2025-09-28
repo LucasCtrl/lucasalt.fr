@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% render 'head' %}
+  </head>
+  <body>
+    <div class="container">
+      {% render 'navbar' %}
+
+      {% assign postList_by_date = postList | sort: 'pusblishDate' %}
+      {% for post in postList_by_date %}
+        <div>
+          <a href="{{ post.uri }}">{{ post.title}}</a>
+          <p>{{ post.publishDate }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

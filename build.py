@@ -1,56 +1,96 @@
 import os
 import shutil
+import frontmatter
+from pathlib import Path
+from marko import Markdown
 from liquid import Environment
 from liquid import FileSystemLoader
-from pathlib import Path
 
-def createPages():
-  env=Environment(loader=FileSystemLoader("src/templates", ext=".html"))
-  template = env.get_template('default')
+markdown = Markdown(extensions=['footnote'])
 
-  pages = Path('src/pages').glob('**/*.html')
+def log(message):
+  print(f'[Log] - {message}')
 
-  for page in pages:
-    pageContent = open(page, 'r').read()
-    with open(f'dist/{page.name}', 'w') as file:
-      file.write(template.render(page_content=pageContent, links=listPages()))
+# Get all posts listed in 'posts' folder
+def getPosts():
+  postFiles = Path('src/posts').glob('*.md')
+  postList = []
+  for postFile in postFiles:
+    with open(postFile) as f:
+      metadata, content = frontmatter.parse(f.read())
+      postList.append({'title': metadata['title'], 'publishDate': metadata['publishDate'], 'uri': f'posts/{postFile.stem}', 'content': content})
+  return postList
 
-def listPages():
+# Get all pages listed in 'pages' folder
+def getPages():
+  pageFiles = Path('src/pages').glob('*.md')
   pageList = []
-
-  pages = Path('src/pages').glob('*.html')
-
-  for page in pages:
-    pageList.append({'uri': page.name, 'name': page.stem.capitalize()})
-
+  for pageFile in pageFiles:
+    with open(pageFile) as f:
+      metadata, content = frontmatter.parse(f.read())
+      pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'content': content})
   return pageList
 
-def copyStaticContent():
-  if not os.path.exists('dist/styles'):
-      os.makedirs('dist/styles')
+# Generate static content
+def copyStaticContent(outputFolder):
+  log('Copying static files')
+  shutil.copytree('src/static', outputFolder, dirs_exist_ok=True)
 
-  shutil.rmtree('dist/styles')
-  shutil.copytree('src/styles', 'dist/styles')
-
-def createPostPages():
+# Generate index page
+def createIndexPage(outputFolder):
   env=Environment(loader=FileSystemLoader("src/templates", ext=".html"))
-  template = env.get_template('default')
+  template = env.get_template('index')
 
-  posts = Path('src/posts').glob('**/*.html')
+  log('Creating index.html')
+  with open(f'{outputFolder}/index.html', 'w') as file:
+    file.write(template.render(postList=getPosts()))
 
-  for post in posts:
-    if not os.path.exists('dist/posts'):
-      os.makedirs(f'dist/posts/{post.stem}')
+def createPages(outputFolder):
+  env=Environment(loader=FileSystemLoader("src/templates", ext=".html"))
+  template = env.get_template('page')
 
-    postContent = open(post, 'r').read()
-    with open(f'dist/posts/{post.stem}/index.html', 'w') as file:
-      file.write(template.render(page_content=postContent, links=listPages()))
+  for page in getPages():
+    pageUri = page['uri']
+    pageContent = markdown.convert(page['content'])
 
-  # for page in pages:
-  #   pageContent = open(page, 'r').read()
-  #   with open(f'dist/{page.name}', 'w') as file:
-  #     file.write(template.render(page_content=pageContent, links=listPages()))
+    if not os.path.exists(f'dist/{pageUri}'):
+      os.makedirs(f'dist/{pageUri}')
 
-copyStaticContent()
-createPages()
-createPostPages()
+    log(f'Creating {pageUri}/index.html')
+    with open(f'{outputFolder}/{pageUri}/index.html', 'w') as file:
+      file.write(template.render(pageContent=pageContent))
+
+# Generate posts pages
+def createPostsPage(outputFolder):
+  env=Environment(loader=FileSystemLoader("src/templates", ext=".html"))
+  template = env.get_template('post')
+
+  for post in getPosts():
+    postUri = post['uri']
+    postContent = markdown.convert(post['content'])
+
+    if not os.path.exists(f'dist/{postUri}'):
+      os.makedirs(f'dist/{postUri}')
+
+    log(f'Creating {postUri}/index.html')
+    with open(f'{outputFolder}/{postUri}/index.html', 'w') as file:
+      file.write(template.render(postContent=postContent))
+
+def main():
+  outputFolder = 'dist'
+
+  # Delete 'dist' folder if he exists
+  if os.path.exists(outputFolder):
+    shutil.rmtree(outputFolder)
+
+  # Create 'dist' folder
+  if not os.path.exists(outputFolder):
+    os.makedirs(outputFolder)
+
+  copyStaticContent(outputFolder)
+  createIndexPage(outputFolder)
+  createPostsPage(outputFolder)
+  createPages(outputFolder)
+
+if __name__ == '__main__':
+  main()
