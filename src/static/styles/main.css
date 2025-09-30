@@ -24,6 +24,12 @@ a:hover {
 .container {
   margin: 0 auto;
   max-width: 720px;
+  margin-bottom: 160px;
+}
+
+/* -------------------- HEADER -------------------- */
+header {
+  margin: 160px 0 80px;
 }
 
 header > ul {
@@ -37,4 +43,92 @@ header > ul > li {
 
 header > ul > li:not(:last-child)::after {
   content: '·'
+}
+
+/* -------------------- POST LIST -------------------- */
+.post-list > div {
+  display: flex;
+  align-items: baseline;
+  gap: 3em;
+  margin-bottom: 1em;
+}
+
+.post-list > div > a {
+  font-size: 1.5em;
+}
+
+.post-list > div > p {
+  margin: 0;
+  color: #585b70;
+}
+
+/* -------------------- POST CONTENT -------------------- */
+.post-content > .post-header {
+  margin-bottom: 64px;
+}
+
+.post-content > .post-header > h1 {
+  margin-bottom: 8px;
+}
+
+.post-content > .post-header > p {
+  margin-top: 0;
+  color: #585b70;
+}
+
+.post-content > p {
+  text-align: justify;
+}
+
+.post-content > blockquote {
+  margin: 0;
+  padding: 16px 40px;
+  background-color: #89b4fa20;
+  border-left: 4px solid #89b4fa;
+}
+
+.post-content > blockquote > p {
+  margin: 0;
+}
+
+.post-content > table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #cdd6f460;
+}
+
+.post-content > table thead {
+  border-bottom: 2px solid #cdd6f460;
+}
+
+.post-content > table th,
+.post-content > table td {
+  padding: 4px 8px;
+  border: 1px solid #cdd6f460;
+}
+
+.post-content > table th:not(:last-child),
+.post-content > table td:not(:last-child) {
+  border-right: 2px solid #cdd6f460;
+}
+
+.post-content > p > code {
+  padding: 2px 4px;
+  background-color: #89b4fa20;
+}
+
+.post-content > pre {
+  padding: 16px 24px;
+  background-color: #89b4fa20;
+}
+
+.post-content > p > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 960px) {
+  .post-content > p > img {
+    width: 960px;
+    margin-left: -120px; /* (imgWidth - containerMaxWidth)/2 to center it */
+  }
 }

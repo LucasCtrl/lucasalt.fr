@@ -7,7 +7,7 @@ from marko import Markdown
 from liquid import Environment
 from liquid import FileSystemLoader
 
-markdown = Markdown(extensions=['footnote'])
+markdown = Markdown(extensions=['gfm', 'footnote'])
 
 def log(message):
   print(f'[Log] - {message}')
@@ -54,6 +54,7 @@ def createIndexPage(outputFolder):
   with open(f'{outputFolder}/index.html', 'w') as file:
     file.write(template.render(postList=getPosts()))
 
+# Generate pages
 def createPages(outputFolder):
   env=Environment(loader=FileSystemLoader("src/templates", ext=".html"))
   template = env.get_template('page')
@@ -78,6 +79,7 @@ def createPostsPage(outputFolder):
   for post in getPosts():
     postUri = post['uri']
     postTitle = post['title']
+    postPublishDate = post['publishDate']
     postContent = markdown.convert(post['content'])
 
     if not os.path.exists(f'dist/{postUri}'):
@@ -85,7 +87,7 @@ def createPostsPage(outputFolder):
 
     log(f'Creating {postUri}/index.html')
     with open(f'{outputFolder}/{postUri}/index.html', 'w') as file:
-      file.write(template.render(postContent=postContent, title=postTitle))
+      file.write(template.render(postContent=postContent, title=postTitle, publishDate=postPublishDate))
 
 def main():
   outputFolder = 'dist'

@@ -7,13 +7,15 @@
     <div class="container">
       {% render 'navbar' %}
 
-      {% assign postList_by_date = postList | sort: 'pusblishDate' %}
-      {% for post in postList_by_date %}
-        <div>
-          <a href="{{ post.uri }}">{{ post.title}}</a>
-          <p>{{ post.publishDate }}</p>
-        </div>
-      {% endfor %}
+      <div class="post-list">
+        {% assign postList_by_date = postList | sort: 'pusblishDate' %}
+        {% for post in postList_by_date %}
+          <div>
+            <a href="{{ post.uri }}">{{ post.title}}</a>
+            <p>{{ post.publishDate }}</p>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </body>
 </html>
