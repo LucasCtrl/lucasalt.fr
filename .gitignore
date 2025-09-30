@@ -3,3 +3,6 @@ venv
 
 # Dist folder
 dist
+
+# Python cache
+__pycache__
