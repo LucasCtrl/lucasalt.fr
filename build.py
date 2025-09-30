@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 import frontmatter
 from pathlib import Path
@@ -18,7 +19,11 @@ def getPosts():
   for postFile in postFiles:
     with open(postFile) as f:
       metadata, content = frontmatter.parse(f.read())
-      postList.append({'title': metadata['title'], 'publishDate': metadata['publishDate'], 'uri': f'posts/{postFile.stem}', 'content': content})
+      if sys.flags.dev_mode:
+        postList.append({'title': metadata['title'], 'publishDate': metadata['publishDate'], 'uri': f'posts/{postFile.stem}', 'content': content})
+      else:
+        if metadata['published']:
+          postList.append({'title': metadata['title'], 'publishDate': metadata['publishDate'], 'uri': f'posts/{postFile.stem}', 'content': content})
   return postList
 
 # Get all pages listed in 'pages' folder
@@ -28,7 +33,11 @@ def getPages():
   for pageFile in pageFiles:
     with open(pageFile) as f:
       metadata, content = frontmatter.parse(f.read())
-      pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'content': content})
+      if sys.flags.dev_mode:
+        pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'content': content})
+      else:
+        if metadata['published']:
+          pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'content': content})
   return pageList
 
 # Generate static content
