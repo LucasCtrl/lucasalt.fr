@@ -57,6 +57,22 @@ header > ul > li:not(:last-child)::after {
   content: '·'
 }
 
+/* -------------------- PAGE CONTENT -------------------- */
+.page-content > p {
+  text-align: justify;
+}
+
+.page-content > blockquote {
+  margin: 0;
+  padding: 16px 40px;
+  background-color: var(--accent-background-color);
+  border-left: 4px solid var(--accent-color);
+}
+
+.page-content > blockquote > p {
+  margin: 0;
+}
+
 /* -------------------- POST LIST -------------------- */
 .post-list > div {
   display: flex;
