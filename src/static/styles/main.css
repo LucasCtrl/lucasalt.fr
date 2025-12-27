@@ -1,6 +1,18 @@
+:root {
+  --background-color: rgb(30, 30, 46);
+  --text-color: rgb(205, 214, 244);
+  --accent-color: rgb(137, 180, 250);
+
+  --accent-background-color: rgba(137, 180, 250, 0.125);
+  --table-border-color: rgba(205, 214, 244, 0.376);
+
+  --container-max-width: 720px;
+  --image-max-width: 960px;
+}
+
 body {
-  background-color: #1e1e2e;
-  color: #cdd6f4;
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family:
 		ui-monospace,
 		SFMono-Regular,
@@ -12,9 +24,9 @@ body {
 }
 
 a {
-  color: #89b4fa;
+  color: var(--accent-color);
   text-decoration: none;
-  border-bottom: 1px dashed #89b4fa;
+  border-bottom: 1px dashed var(--accent-color);
 }
 
 a:hover {
@@ -23,7 +35,7 @@ a:hover {
 
 .container {
   margin: 0 auto;
-  max-width: 720px;
+  max-width: var(--container-max-width);
   margin-bottom: 160px;
 }
 
@@ -83,8 +95,8 @@ header > ul > li:not(:last-child)::after {
 .post-content > blockquote {
   margin: 0;
   padding: 16px 40px;
-  background-color: #89b4fa20;
-  border-left: 4px solid #89b4fa;
+  background-color: var(--accent-background-color);
+  border-left: 4px solid var(--accent-color);
 }
 
 .post-content > blockquote > p {
@@ -94,32 +106,32 @@ header > ul > li:not(:last-child)::after {
 .post-content > table {
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid #cdd6f460;
+  border: 2px solid var(--table-border-color);
 }
 
 .post-content > table thead {
-  border-bottom: 2px solid #cdd6f460;
+  border-bottom: 2px solid var(--table-border-color);
 }
 
 .post-content > table th,
 .post-content > table td {
   padding: 4px 8px;
-  border: 1px solid #cdd6f460;
+  border: 1px solid var(--table-border-color);
 }
 
 .post-content > table th:not(:last-child),
 .post-content > table td:not(:last-child) {
-  border-right: 2px solid #cdd6f460;
+  border-right: 2px solid var(--table-border-color);
 }
 
 .post-content > p > code {
   padding: 0 4px;
-  background-color: #89b4fa20;
+  background-color: var(--accent-background-color);
 }
 
 .post-content > pre {
   padding: 16px 24px;
-  background-color: #89b4fa20;
+  background-color: var(--accent-background-color);
 }
 
 .post-content > p > img {
@@ -128,7 +140,7 @@ header > ul > li:not(:last-child)::after {
 
 @media screen and (min-width: 960px) {
   .post-content > p > img {
-    width: 960px;
-    margin-left: -120px; /* (imgWidth - containerMaxWidth)/2 to center it */
+    width: var(--image-max-width);
+    margin-left: calc(((var(--image-max-width) - var(--container-max-width)) / 2) * -1); /* (imgWidth - containerMaxWidth)/2 to center it */
   }
 }
