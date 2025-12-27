@@ -65,6 +65,8 @@ Click the hook will locate the footnote[^footnote], and here is another footnote
 
 This is an example of `Inline Code`.
 
+But what are layers you will ask. Think about the `Shift` key. When you press on the letter `a`, you have a lowercase `a`. By pressing on `Shift + a`, you will go to a layer for uppercase letters and an uppercase `A` will appear on your screen. With a 40% keyboard, you will not only have 1 or 2 layers but 3 or 4 with specific purposes (layer 1 for uppercase letters, layer 2 for symbols, layer 3 for numbers, ...).
+
 ## Filepath
 
 Here is the `/path/to/the/file.extend`{: .filepath}.
