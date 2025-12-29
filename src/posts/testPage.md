@@ -90,7 +90,9 @@ fi;
 
 ## Images
 
-![](https://images.unsplash.com/photo-1595044426077-d36d9236d54a?w=1280&auto=format&fit=crop)
+![I'm a figcaption as well as a alternative text](https://images.unsplash.com/photo-1595044426077-d36d9236d54a?w=1280&auto=format&fit=crop)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean volutpat libero enim, ultricies ultricies justo gravida non. Quisque at suscipit nunc, ut fermentum felis. Nulla facilisi. Mauris ac mauris nec nisl interdum scelerisque. Mauris pharetra nunc rhoncus, sollicitudin lacus non, iaculis nibh. Cras nec consectetur dolor. Nullam pretium nisl in felis mollis fringilla. Fusce convallis vestibulum metus, non tristique elit consequat non. Maecenas ut dolor sit amet nulla placerat congue in ac mauris. Vivamus tempus enim massa. Donec varius justo ac arcu scelerisque, nec dapibus nisi maximus. Proin sagittis condimentum metus, eget posuere nisl euismod non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tristique risus velit, eu dapibus mauris gravida vitae. Praesent nec dui augue. Nulla facilisi. 
 
 [^footnote]: The footnote source
 

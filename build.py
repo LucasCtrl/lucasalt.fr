@@ -4,10 +4,25 @@ import shutil
 import frontmatter
 from pathlib import Path
 from marko import Markdown
+from marko.html_renderer import HTMLRenderer
 from liquid import Environment
 from liquid import FileSystemLoader
 
-markdown = Markdown(extensions=['gfm', 'footnote'])
+class CustomMarkoRenderer(HTMLRenderer):
+  def render_image(self, element):
+    url = element.dest
+    alt_text = self.render_children(element)
+
+    html = (
+      f'<figure>\n'
+      f'  <img src="{url}" alt="{alt_text}" />\n'
+      f'  <figcaption>{alt_text}</figcaption>\n'
+      f'</figure>'
+    )
+
+    return html
+
+markdown = Markdown(extensions=['gfm', 'footnote'], renderer=CustomMarkoRenderer)
 
 def log(message):
   print(f'[Log] - {message}')
