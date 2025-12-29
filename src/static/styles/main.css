@@ -1,6 +1,7 @@
 :root {
   --background-color: rgb(30, 30, 46);
   --text-color: rgb(205, 214, 244);
+  --subtext-color: rgba(205, 214, 244, 0.7);
   --accent-color: rgb(137, 180, 250);
 
   --accent-background-color: rgba(137, 180, 250, 0.125);
@@ -19,8 +20,8 @@ body {
 		Consolas,
 		'Liberation Mono',
 		Menlo,
-		monospace; /* 1 */
-	font-size: 1em; /* 2 */
+		monospace;
+	font-size: 1em;
 }
 
 a {
@@ -106,6 +107,16 @@ header > ul > li:not(:last-child)::after {
 
 .post-content > p {
   text-align: justify;
+  line-height: 1.625;
+}
+
+.post-content > h1,
+.post-content > h2,
+.post-content > h3,
+.post-content > h4,
+.post-content > h5,
+.post-content > h6 {
+  line-height: 1.625;
 }
 
 .post-content > blockquote {
@@ -141,7 +152,7 @@ header > ul > li:not(:last-child)::after {
 }
 
 .post-content > p > code {
-  padding: 0 4px;
+  padding: 2px 4px;
   background-color: var(--accent-background-color);
 }
 
@@ -150,8 +161,19 @@ header > ul > li:not(:last-child)::after {
   background-color: var(--accent-background-color);
 }
 
-.post-content > p > img {
+.post-content > figure {
+  text-align: center;
+}
+
+.post-content > figure > img {
   width: 100%;
+  max-width: fit-content;
+}
+
+.post-content > figure > figcaption {
+  padding-top: 4px;
+  color: var(--subtext-color);
+  /* font-size: 0.9em; */
 }
 
 @media screen and (min-width: 960px) {
