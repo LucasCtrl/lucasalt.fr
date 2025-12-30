@@ -78,6 +78,18 @@ header > ul > li:not(:last-child)::after {
   padding: 0 var(--content-padding-x);
 
   text-align: justify;
+  line-height: 1.625;
+}
+
+.page-content > h1,
+.page-content > h2,
+.page-content > h3,
+.page-content > h4,
+.page-content > h5,
+.page-content > h6 {
+  padding: 0 var(--content-padding-x);
+
+  line-height: 1.625;
 }
 
 .page-content > blockquote {
@@ -90,6 +102,11 @@ header > ul > li:not(:last-child)::after {
 
 .page-content > blockquote > p {
   margin: 0;
+}
+
+.page-content > ol,
+.page-content > ul {
+  padding: 0 calc(var(--content-padding-x) + 40px);
 }
 
 /* -------------------- POST LIST -------------------- */
