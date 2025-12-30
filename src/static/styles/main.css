@@ -7,8 +7,15 @@
   --accent-background-color: rgba(137, 180, 250, 0.125);
   --table-border-color: rgba(205, 214, 244, 0.376);
 
-  --container-max-width: 720px;
-  --image-max-width: 960px;
+  --container-max-width: 960px;
+  --content-max-width: 720px;
+  --content-padding-x: 0px;
+}
+
+@media screen and (min-width: 960px) {
+  :root {
+    --content-padding-x: calc((var(--container-max-width) - var(--content-max-width)) / 2);
+  }
 }
 
 body {
@@ -36,13 +43,21 @@ a:hover {
 
 .container {
   margin: 0 auto;
+  padding: 0 16px;
   max-width: var(--container-max-width);
   margin-bottom: 160px;
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    padding: 0;
+  }
 }
 
 /* -------------------- HEADER -------------------- */
 header {
   margin: 160px 0 80px;
+  padding: 0 var(--content-padding-x);
 }
 
 header > ul {
@@ -60,11 +75,14 @@ header > ul > li:not(:last-child)::after {
 
 /* -------------------- PAGE CONTENT -------------------- */
 .page-content > p {
+  padding: 0 var(--content-padding-x);
+
   text-align: justify;
 }
 
 .page-content > blockquote {
-  margin: 0;
+  margin: 0 var(--content-padding-x);
+
   padding: 16px 40px;
   background-color: var(--accent-background-color);
   border-left: 4px solid var(--accent-color);
@@ -75,6 +93,10 @@ header > ul > li:not(:last-child)::after {
 }
 
 /* -------------------- POST LIST -------------------- */
+.post-list {
+  padding: 0 var(--content-padding-x);
+}
+
 .post-list > div {
   display: flex;
   align-items: baseline;
@@ -94,6 +116,7 @@ header > ul > li:not(:last-child)::after {
 /* -------------------- POST CONTENT -------------------- */
 .post-content > .post-header {
   margin-bottom: 64px;
+  padding: 0 var(--content-padding-x);
 }
 
 .post-content > .post-header > h1 {
@@ -106,6 +129,8 @@ header > ul > li:not(:last-child)::after {
 }
 
 .post-content > p {
+  padding: 0 var(--content-padding-x);
+
   text-align: justify;
   line-height: 1.625;
 }
@@ -116,11 +141,19 @@ header > ul > li:not(:last-child)::after {
 .post-content > h4,
 .post-content > h5,
 .post-content > h6 {
+  padding: 0 var(--content-padding-x);
+
   line-height: 1.625;
 }
 
+.post-content > ol,
+.post-content > ul {
+  padding: 0 calc(var(--content-padding-x) + 40px);
+}
+
 .post-content > blockquote {
-  margin: 0;
+  margin: 0 var(--content-padding-x);
+
   padding: 16px 40px;
   background-color: var(--accent-background-color);
   border-left: 4px solid var(--accent-color);
@@ -131,7 +164,9 @@ header > ul > li:not(:last-child)::after {
 }
 
 .post-content > table {
-  width: 100%;
+  margin: 0 var(--content-padding-x);
+
+  width: calc(100% - (var(--container-max-width) - var(--content-max-width)));
   border-collapse: collapse;
   border: 2px solid var(--table-border-color);
 }
@@ -157,11 +192,13 @@ header > ul > li:not(:last-child)::after {
 }
 
 .post-content > pre {
+  margin: 0 var(--content-padding-x);
   padding: 16px 24px;
   background-color: var(--accent-background-color);
 }
 
 .post-content > figure {
+  margin: 0;
   text-align: center;
 }
 
@@ -176,9 +213,6 @@ header > ul > li:not(:last-child)::after {
   /* font-size: 0.9em; */
 }
 
-@media screen and (min-width: 960px) {
-  .post-content > p > img {
-    width: var(--image-max-width);
-    margin-left: calc(((var(--image-max-width) - var(--container-max-width)) / 2) * -1); /* (imgWidth - containerMaxWidth)/2 to center it */
-  }
+.post-content > .footnotes {
+  padding: 0 var(--content-padding-x);
 }
