@@ -1,6 +1,6 @@
 ---
 title: About
-published: false
+published: true
 ---
 
 <!-- **CAD Trainer / Maker / 40% keyboard enjoyer** -->
