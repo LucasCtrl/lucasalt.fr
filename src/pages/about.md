@@ -7,7 +7,7 @@ published: true
 
 Hi there! 👋
 
-I'm Lucas Albert, a 26 years old CAD/CAM trainer and designer based in Strasbourg, France. During my spare time, I like to design [mechanical keyboards](https://en.wikipedia.org/wiki/Computer_keyboard), thinker on my C02 laser cutter and develop apps and websites.
+I'm Lucas Albert, a 26 years old CAD/CAM trainer and designer based in Strasbourg, France. During my spare time, I like to play video games, design [mechanical keyboards](https://en.wikipedia.org/wiki/Computer_keyboard), thinker on my C02 laser cutter and develop websites.
 
 > Optimization and automation are my creeds
 
