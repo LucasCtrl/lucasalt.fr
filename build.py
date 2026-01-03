@@ -152,6 +152,37 @@ def createPostsPage(outputFolder):
       )
 
 
+def createTagPages(outputFolder):
+  env = Environment(loader=FileSystemLoader('src/templates', ext='.html'))
+  template = env.get_template('tag')
+
+  tagList = []
+
+  for post in getPosts():
+    for tag in post['tags']:
+      if tag not in tagList:
+        tagList.append(tag)
+
+  log(f'Following tags will be generated: {tagList}')
+
+  for tag in tagList:
+
+    def taggedPost(post):
+      if tag in post['tags']:
+        return True
+      else:
+        return False
+
+    posts = filter(taggedPost, getPosts())
+
+    if not os.path.exists(f'dist/tags/{tag}'):
+      os.makedirs(f'dist/tags/{tag}')
+
+    log(f'Creating tags/{tag}/index.html')
+    with open(f'{outputFolder}/tags/{tag}/index.html', 'w') as file:
+      file.write(template.render(tag=tag, postList=posts))
+
+
 def main():
   outputFolder = 'dist'
 
@@ -167,6 +198,7 @@ def main():
   createIndexPage(outputFolder)
   createPostsPage(outputFolder)
   createPages(outputFolder)
+  createTagPages(outputFolder)
 
 
 if __name__ == '__main__':

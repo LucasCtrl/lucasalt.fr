@@ -3,6 +3,7 @@
   --text-color: rgb(205, 214, 244);
   --subtext-color: rgba(205, 214, 244, 0.7);
   --accent-color: rgb(137, 180, 250);
+  --date-color: rgb(88, 91, 112);
 
   --accent-background-color: rgba(137, 180, 250, 0.125);
   --table-border-color: rgba(205, 214, 244, 0.376);
@@ -21,14 +22,8 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family:
-		ui-monospace,
-		SFMono-Regular,
-		Consolas,
-		'Liberation Mono',
-		Menlo,
-		monospace;
-	font-size: 1em;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 1em;
 }
 
 a {
@@ -70,7 +65,7 @@ header > ul > li {
 }
 
 header > ul > li:not(:last-child)::after {
-  content: '·'
+  content: "·";
 }
 
 /* -------------------- PAGE CONTENT -------------------- */
@@ -127,7 +122,7 @@ header > ul > li:not(:last-child)::after {
 
 .post-list > div > p {
   margin: 0;
-  color: #585b70;
+  color: var(--date-color);
 }
 
 /* -------------------- POST CONTENT -------------------- */
@@ -142,7 +137,12 @@ header > ul > li:not(:last-child)::after {
 
 .post-content > .post-header > p {
   margin-top: 0;
-  color: #585b70;
+  color: var(--date-color);
+}
+
+.post-content > .post-header a {
+  color: var(--date-color);
+  border-bottom: 1px dashed var(--date-color);
 }
 
 .post-content > p {

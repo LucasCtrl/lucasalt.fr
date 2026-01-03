@@ -8,6 +8,7 @@
       {% render 'navbar' %}
 
       <div class="post-list">
+        <h1>#{{ tag }}</h1>
         {% assign postList_by_date = postList | sort: 'publishDate' | reverse %}
         {% for post in postList_by_date %}
         <div>
