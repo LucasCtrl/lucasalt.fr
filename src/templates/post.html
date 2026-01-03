@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     {% render 'head', title: title %}
@@ -10,7 +10,11 @@
       <div class="post-content">
         <div class="post-header">
           <h1>{{ title }}</h1>
-          <p>Published on {{ publishDate }}</p>
+          <p>
+            <span>{% for tag in tags %} #{{tag}} {% endfor %}</span>
+            {% unless tags == empty %} - {% endunless %}
+            <span>Published on {{ publishDate }}</span>
+          </p>
         </div>
         {{ postContent }}
       </div>
