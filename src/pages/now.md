@@ -1,5 +1,6 @@
 ---
-title: About
+title: Now
+navbar: true
 published: true
 ---
 
@@ -10,7 +11,7 @@ published: true
 
 # Readings
 I'm not a big reader but here's a small list of my current readings:
-## Dune (Frank Herbert).
+## Dune (Frank Herbert)
 As Dune 3 from Denis Villeneuve will be released at the end of the year and I really liked the first 2 movies, I took the leap to start to read the series.
 
 # Gaming

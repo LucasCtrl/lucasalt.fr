@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="container">
-      {% render 'navbar' %}
+      {% render 'navbar' navItems: navItems %}
 
       <div class="post-list">
         {% assign postList_by_date = postList | sort: 'publishDate' | reverse %}

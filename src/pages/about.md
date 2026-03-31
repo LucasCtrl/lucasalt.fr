@@ -1,5 +1,6 @@
 ---
 title: About
+navbar: true
 published: true
 ---
 

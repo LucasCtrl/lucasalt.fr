@@ -49,10 +49,10 @@ def getPages():
     with open(pageFile) as f:
       metadata, content = frontmatter.parse(f.read())
       if sys.flags.dev_mode:
-        pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'content': content})
+        pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'navbar': metadata['navbar'], 'content': content})
       else:
         if metadata['published']:
-          pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'content': content})
+          pageList.append({'title': metadata['title'], 'uri': pageFile.stem, 'navbar': metadata['navbar'], 'content': content})
   return pageList
 
 # Generate static content
@@ -67,7 +67,7 @@ def createIndexPage(outputFolder):
 
   log('Creating index.html')
   with open(f'{outputFolder}/index.html', 'w') as file:
-    file.write(template.render(postList=getPosts()))
+    file.write(template.render(navItems=getPages(), postList=getPosts()))
 
 # Generate pages
 def createPages(outputFolder):
@@ -84,7 +84,7 @@ def createPages(outputFolder):
 
     log(f'Creating {pageUri}/index.html')
     with open(f'{outputFolder}/{pageUri}/index.html', 'w') as file:
-      file.write(template.render(pageContent=pageContent, title=pageTitle))
+      file.write(template.render(navItems=getPages(), pageContent=pageContent, title=pageTitle))
 
 # Generate posts pages
 def createPostsPage(outputFolder):
@@ -102,7 +102,7 @@ def createPostsPage(outputFolder):
 
     log(f'Creating {postUri}/index.html')
     with open(f'{outputFolder}/{postUri}/index.html', 'w') as file:
-      file.write(template.render(postContent=postContent, title=postTitle, publishDate=postPublishDate))
+      file.write(template.render(navItems=getPages(), postContent=postContent, title=postTitle, publishDate=postPublishDate))
 
 def main():
   outputFolder = 'dist'
