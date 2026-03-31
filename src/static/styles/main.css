@@ -219,7 +219,12 @@ header > ul > li:not(:last-child)::after {
   text-align: center;
 }
 
-.post-content > figure > img {
+.post-content > figure > a {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.post-content > figure > a > img {
   width: 100%;
   max-width: fit-content;
 }

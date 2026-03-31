@@ -15,7 +15,9 @@ class CustomMarkoRenderer(HTMLRenderer):
 
     html = (
       f'<figure>\n'
-      f'  <img src="{url}" alt="{alt_text}" />\n'
+      f'  <a href="{url}" target="_blank">\n'
+      f'    <img src="{url}" alt="{alt_text}" />\n'
+      f'  </a>\n'
       f'  <figcaption>{alt_text}</figcaption>\n'
       f'</figure>'
     )
