@@ -43,9 +43,9 @@ a:hover {
 
 .container {
   margin: 0 auto;
+  margin-bottom: 160px;
   padding: 0 16px;
   max-width: var(--container-max-width);
-  margin-bottom: 160px;
 }
 
 @media screen and (min-width: 960px) {
@@ -168,6 +168,11 @@ header > ul > li:not(:last-child)::after {
   padding: 0 calc(var(--content-padding-x) + 40px);
 }
 
+.post-content > ol li,
+.post-content > ul li {
+  line-height: 1.625;
+}
+
 .post-content > blockquote {
   margin: 0 var(--content-padding-x);
 
@@ -203,7 +208,8 @@ header > ul > li:not(:last-child)::after {
   border-right: 2px solid var(--table-border-color);
 }
 
-.post-content > p > code {
+.post-content > p > code,
+.post-content li > code {
   padding: 2px 4px;
   background-color: var(--accent-background-color);
 }
@@ -214,22 +220,22 @@ header > ul > li:not(:last-child)::after {
   background-color: var(--accent-background-color);
 }
 
-.post-content > figure {
+.post-content figure {
   margin: 0;
   text-align: center;
 }
 
-.post-content > figure > a {
+.post-content figure > a {
   text-decoration: none;
   border-bottom: none;
 }
 
-.post-content > figure > a > img {
+.post-content figure > a > img {
   width: 100%;
   max-width: fit-content;
 }
 
-.post-content > figure > figcaption {
+.post-content figure > figcaption {
   padding-top: 4px;
   color: var(--subtext-color);
   /* font-size: 0.9em; */
