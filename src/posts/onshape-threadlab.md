@@ -4,9 +4,9 @@ publishDate: 2026-04-18
 published: true
 ---
 
-OnShape[^1] offer two types of tools for drawing threads: hole and external thread. They are great when you draw parts because the tool links the information in the CAD model to the drawing with the right informations. The only downside is when you start to design parts for a 3D printer, OnShape[^1] defines the surface as an internal or external thread but he doesn't represent it on the 3D model. In some cases, the thread will be 3D printed so he needs to be represented as a 3D object on the model.
+OnShape[^1] offers two types of tools for drawing threads: hole and external thread. They are great when you draw parts because the tool links the information in the CAD model to the drawing with the right information. The only downside is when you start to design parts for a 3D printer, OnShape[^1] defines the surface as an internal or external thread but it doesn't represent it in the 3D model. In some cases, the thread will be 3D printed so it needs to be represented as a 3D object in the model.
 
-Here comes a great tool call [ThreadLab](https://forum.onshape.com/discussion/19009/threadlab-internal-external-modeled-cosmetic-threads-with-external-thread-callouts/), developed by [antlu56](https://forum.onshape.com/profile/activity/antlu65).
+Here comes a great tool called [ThreadLab](https://forum.onshape.com/discussion/19009/threadlab-internal-external-modeled-cosmetic-threads-with-external-thread-callouts/), developed by [antlu56](https://forum.onshape.com/profile/activity/antlu65).
 
 ## Installation
 
