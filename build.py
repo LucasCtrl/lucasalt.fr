@@ -9,6 +9,12 @@ from liquid import Environment
 from liquid import FileSystemLoader
 
 class CustomMarkoRenderer(HTMLRenderer):
+  def render_heading(self, element):
+    level = element.level
+    title = self.render_children(element)
+    id = title.lower().replace(' ', '_')
+    return f"<h{level} id='{id}'>{title}</h{level}>"
+
   def render_image(self, element):
     url = element.dest
     alt_text = self.render_children(element)
