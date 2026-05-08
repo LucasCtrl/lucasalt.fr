@@ -1,7 +1,9 @@
 ---
-title: 'Hello world!'
+title: "Hello world!"
 publishDate: 2018-12-17
 published: true
+tags:
+  - misc
 ---
 
 Some simple words know by everyone in the IT sector to check if the program is running at the first start. In my case, to welcome you for the first time...

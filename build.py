@@ -191,7 +191,7 @@ def createTagPages(outputFolder):
 
     log(f'Creating tags/{tag}/index.html')
     with open(f'{outputFolder}/tags/{tag}/index.html', 'w') as file:
-      file.write(template.render(tag=tag, postList=posts))
+      file.write(template.render(navItems=getPages(), title=f'#{tag}', tag=tag, postList=posts))
 
 
 def main():

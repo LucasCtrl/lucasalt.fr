@@ -2,6 +2,9 @@
 title: "3D modeling threads in OnShape"
 publishDate: 2026-04-18
 published: true
+tags:
+  - onshape
+  - cad
 ---
 
 OnShape[^1] offers two types of tools for drawing threads: hole and external thread. They are great when you draw parts because the tool links the information in the CAD model to the drawing with the right information. The only downside is when you start to design parts for a 3D printer, OnShape[^1] defines the surface as an internal or external thread but it doesn't represent it in the 3D model. In some cases, the thread will be 3D printed so it needs to be represented as a 3D object in the model.

@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% render 'head' %}
+    {% render 'head', title: title %}
   </head>
   <body>
     <div class="container">
-      {% render 'navbar' %}
+      {% render 'navbar' navItems: navItems %}
 
       <div class="post-list">
         <h1>#{{ tag }}</h1>
