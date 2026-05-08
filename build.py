@@ -10,13 +10,21 @@ from marko.html_renderer import HTMLRenderer
 
 
 class CustomMarkoRenderer(HTMLRenderer):
+  def render_heading(self, element):
+    level = element.level
+    title = self.render_children(element)
+    id = title.lower().replace(' ', '_')
+    return f"<h{level} id='{id}'>{title}</h{level}>"
+
   def render_image(self, element):
     url = element.dest
     alt_text = self.render_children(element)
 
     html = (
       f'<figure>\n'
-      f'  <img src="{url}" alt="{alt_text}" />\n'
+      f'  <a href="{url}" target="_blank">\n'
+      f'    <img src="{url}" alt="{alt_text}" />\n'
+      f'  </a>\n'
       f'  <figcaption>{alt_text}</figcaption>\n'
       f'</figure>'
     )
@@ -76,6 +84,7 @@ def getPages():
           {
             'title': metadata['title'],
             'uri': pageFile.stem,
+            'navbar': metadata['navbar'],
             'content': content,
           }
         )
@@ -85,6 +94,7 @@ def getPages():
             {
               'title': metadata['title'],
               'uri': pageFile.stem,
+              'navbar': metadata['navbar'],
               'content': content,
             }
           )
@@ -104,7 +114,7 @@ def createIndexPage(outputFolder):
 
   log('Creating index.html')
   with open(f'{outputFolder}/index.html', 'w') as file:
-    file.write(template.render(postList=getPosts()))
+    file.write(template.render(navItems=getPages(), postList=getPosts()))
 
 
 # Generate pages
@@ -122,7 +132,7 @@ def createPages(outputFolder):
 
     log(f'Creating {pageUri}/index.html')
     with open(f'{outputFolder}/{pageUri}/index.html', 'w') as file:
-      file.write(template.render(pageContent=pageContent, title=pageTitle))
+      file.write(template.render(navItems=getPages(), pageContent=pageContent, title=pageTitle))
 
 
 # Generate posts pages
@@ -144,6 +154,7 @@ def createPostsPage(outputFolder):
     with open(f'{outputFolder}/{postUri}/index.html', 'w') as file:
       file.write(
         template.render(
+          navItems=getPages(),
           postContent=postContent,
           title=postTitle,
           publishDate=postPublishDate,
