@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 513 513" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-580,-554)">
+        <g id="Gap---Background" serif:id="Gap - Background" transform="matrix(1.024,0,0,1.024,580.880199,554.345323)">
+            <rect x="0" y="0" width="500" height="500" style="fill:white;"/>
+            <g transform="matrix(0.746329,0,0,0.75,62.5,62.5)">
+                <path d="M0,500L0,0L100.492,0L100.492,0.052L502.459,500L374.231,500L100.492,159.99L100.492,400L229.339,400L309.848,500L0,500Z"/>
+            </g>
+        </g>
+    </g>
+</svg>
