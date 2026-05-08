@@ -2,6 +2,9 @@
 title: 'Test page'
 publishDate: 2025-09-29
 published: false
+tags:
+- android
+- misc
 ---
 
 ## Headings

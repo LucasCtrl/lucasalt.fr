@@ -2,6 +2,9 @@
 title: "Intra"
 publishDate: 2019-02-03
 published: true
+tags:
+- android
+- dns
 ---
 
 [Intra](https://getintra.org/) is an Android application that allows you to access the internet in a secure way. Developed by **Jigsaw**, a technology incubator within Alphabet (Google), the application protects you from DNS manipulations preventing you from accessing certain websites or applications.
