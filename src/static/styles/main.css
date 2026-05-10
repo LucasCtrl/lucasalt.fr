@@ -1,12 +1,23 @@
-:root {
-  --background-color: rgb(30, 30, 46);
-  --text-color: rgb(205, 214, 244);
-  --subtext-color: rgba(205, 214, 244, 0.7);
-  --accent-color: rgb(137, 180, 250);
-  --date-color: rgb(88, 91, 112);
+/* --------------------
+Color palette
 
-  --accent-background-color: rgba(137, 180, 250, 0.125);
-  --table-border-color: rgba(205, 214, 244, 0.376);
+#FBD0A6 - Light orange
+#F37022 - Pumpkin
+#B11016 - Cornell red
+#2ABA9E - Keppel
+#007096 - Cerulean
+#10181C - Dark blue
+*/
+
+:root {
+  --background-color: oklch(20.291% 0.01435 230.017);
+  --text-color: oklch(87.866% 0.04266 272.281);
+  --subtext-color: oklch(87.866% 0.04266 272.281 / 0.7);
+  --accent-color: oklch(68.924% 0.13917 231.137);
+  --date-color: oklch(47.651% 0.03405 278.638);
+
+  --accent-background-color: oklch(68.924% 0.13917 231.137 / 0.1);
+  --table-border-color: oklch(87.866% 0.04266 272.281 / 0.376);
 
   --container-max-width: 960px;
   --content-max-width: 720px;
