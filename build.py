@@ -7,6 +7,7 @@ import frontmatter
 from liquid import Environment, FileSystemLoader
 from marko import Markdown
 from marko.html_renderer import HTMLRenderer
+from PIL import Image
 
 
 class CustomMarkoRenderer(HTMLRenderer):
@@ -101,10 +102,20 @@ def getPages():
   return pageList
 
 
+# Image compression
+def compressImg(inputFile):
+  try:
+    with Image.open(inputFile) as im:
+      print(im.format, im.size, im.mode)
+      im.save("dist/img/onshape-threadlab/addCustomFeatureTest.webp", quality=80)
+  except OSError:
+    print("Cannot convert", inputFile)
+
 # Generate static content
 def copyStaticContent(outputFolder):
   log('Copying static files')
   shutil.copytree('src/static', outputFolder, dirs_exist_ok=True)
+  compressImg('src/static/img/onshape-threadlab/addCustomFeature.png')
 
 
 # Generate index page
