@@ -28,4 +28,4 @@ A good book, easy to read. The plot feels a little bit rushed by the end and I w
 
 # Gaming
 
-As Forza Horizon 6 just came out, it's gonna be the main game I'll play in the following days/weeks/months. Otherwise, I'll continue to do the LinkedIn daily minigames, play [Nonogram Katana](https://nonograms-katana.fandom.com/wiki/Nonograms_Katana_Wiki) and [Balatro](https://www.playbalatro.com/).
+As Forza Horizon 6 just came out, it's gonna be the main game I'll play in the following days/weeks/months. I also play LinkedIn mini-games, [Nonogram Katana](https://nonograms-katana.fandom.com/wiki/Nonograms_Katana_Wiki), and [CluesBySam](https://cluesbysam.com/) daily. From time to time, I also play [Balatro](https://www.playbalatro.com/).
