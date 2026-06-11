@@ -1,4 +1,5 @@
 python-liquid
 python-frontmatter
 marko
+marko[codehilite]
 Pillow

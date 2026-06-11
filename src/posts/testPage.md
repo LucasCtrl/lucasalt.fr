@@ -91,6 +91,24 @@ if [ $? -ne 0 ]; then
 fi;
 ```
 
+```python
+def main():
+  outputFolder = 'dist'
+
+  # Delete 'dist' folder if he exists
+  if os.path.exists(outputFolder):
+    shutil.rmtree(outputFolder)
+
+  # Create 'dist' folder
+  if not os.path.exists(outputFolder):
+    os.makedirs(outputFolder)
+
+  copyStaticContent(outputFolder)
+
+if __name__ == '__main__':
+  main()
+```
+
 ## Images
 
 ![Small image example](https://i.imgur.com/dgSkt3r_d.webp?maxwidth=520&shape=thumb&fidelity=high)

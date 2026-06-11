@@ -22,6 +22,13 @@ Color palette
   --container-max-width: 960px;
   --content-max-width: 720px;
   --content-padding-x: 0px;
+
+  --theme-light-orange: oklch(88.451% 0.07325 65.944);
+  --theme-dark-orange: oklch(69.243% 0.181 46.059);
+  --theme-red: oklch(48.366% 0.18959 27.212);
+  --theme-green: oklch(70.924% 0.12373 175.841);
+  --theme-light-blue: oklch(51.106% 0.10273 230.751);
+  --theme-dark-blue: oklch(20.291% 0.01435 230.017);
 }
 
 @media screen and (min-width: 960px) {
@@ -225,10 +232,45 @@ header > ul > li:not(:last-child)::after {
   background-color: var(--accent-background-color);
 }
 
-.post-content > pre {
+.post-content > pre,
+.post-content > .highlight {
   margin: 0 var(--content-padding-x);
   padding: 16px 24px;
   background-color: var(--accent-background-color);
+}
+
+.post-content > .highlight > pre {
+  margin: 0;
+}
+
+.post-content > .highlight .k,
+.post-content > .highlight .ow {
+  color: var(--theme-red);
+}
+
+.post-content > .highlight .o,
+.post-content > .highlight .p {
+  color: var(--theme-dark-orange);
+}
+
+.post-content > .highlight .c1 {
+  color: var(--date-color);
+}
+
+.post-content > .highlight .nb {
+  color: var(--theme-light-blue)
+}
+
+.post-content > .highlight .s1,
+.post-content > .highlight .s2 {
+  color: var(--theme-green)
+}
+
+.post-content > .highlight .m,
+.post-content > .highlight .n,
+.post-content > .highlight .nf,
+.post-content > .highlight .nv {
+  color: var(--theme-light-orange)
 }
 
 .post-content figure {

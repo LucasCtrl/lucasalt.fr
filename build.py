@@ -35,7 +35,7 @@ class CustomMarkoRenderer(HTMLRenderer):
     return html
 
 
-markdown = Markdown(extensions=['gfm', 'footnote'], renderer=CustomMarkoRenderer)
+markdown = Markdown(extensions=['gfm', 'footnote', 'codehilite'], renderer=CustomMarkoRenderer)
 
 
 def log(message):
