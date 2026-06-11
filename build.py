@@ -109,9 +109,10 @@ def compressImg(srcFile, outFile):
   outPath, ext = os.path.splitext(outFile)
   try:
     with Image.open(srcFile) as image:
-      if image.width > 1920 or image.height > 1080:
-        print("reducing")
-        resized_image = image.resize((1920, 1080))
+      if image.width > 1280 or image.height > 720:
+        imgRatio = image.width / image.height
+        reduced_size = (1280, int(1280/imgRatio))
+        resized_image = image.resize(size=reduced_size)
         resized_image.save(f"{outPath}.webp", quality=80)
       else:
         image.save(f"{outPath}.webp", quality=80)
