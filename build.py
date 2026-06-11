@@ -109,8 +109,12 @@ def compressImg(srcFile, outFile):
   outPath, ext = os.path.splitext(outFile)
   try:
     with Image.open(srcFile) as image:
-      # TODO: If image are greater than 1920x1080, reduce them to 1920x1080 or 1280x720
-      image.save(f"{outPath}.webp", quality=80)
+      if image.width > 1920 or image.height > 1080:
+        print("reducing")
+        resized_image = image.resize((1920, 1080))
+        resized_image.save(f"{outPath}.webp", quality=80)
+      else:
+        image.save(f"{outPath}.webp", quality=80)
   except OSError:
     print("Cannot convert", srcFile)
 
@@ -123,7 +127,7 @@ def _staticFileProcessor(entries, src, outDir):
       os.makedirs(outName, exist_ok=True)
       staticFileProcessor(srcDir=srcName, outDir=outName)
     else:
-      if srcName.endswith("png"):
+      if srcName.endswith("png") or srcName.endswith("jpg"):
         shutil.copy(srcName, outName)
         compressImg(srcName, outName)
       else: 
