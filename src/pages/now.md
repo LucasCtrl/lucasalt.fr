@@ -4,7 +4,7 @@ navbar: true
 published: true
 ---
 
-> Last updated on May 22, 2026
+> Last updated on June 10, 2026
 
 # SKG
 
