@@ -1,3 +1,4 @@
 python-liquid
 python-frontmatter
 marko
+Pillow
