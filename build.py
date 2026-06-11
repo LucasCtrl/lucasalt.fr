@@ -18,13 +18,15 @@ class CustomMarkoRenderer(HTMLRenderer):
     return f"<h{level} id='{id}'>{title}</h{level}>"
 
   def render_image(self, element):
-    url = element.dest
+    imgPath = element.dest
+    path, ext = os.path.splitext(imgPath)
+
     alt_text = self.render_children(element)
 
     html = (
       f'<figure>\n'
-      f'  <a href="{url}" target="_blank">\n'
-      f'    <img src="{url}" alt="{alt_text}" />\n'
+      f'  <a href="{imgPath}" target="_blank">\n'
+      f'    <img src="{path}.webp" alt="{alt_text}" />\n'
       f'  </a>\n'
       f'  <figcaption>{alt_text}</figcaption>\n'
       f'</figure>'
@@ -103,19 +105,40 @@ def getPages():
 
 
 # Image compression
-def compressImg(inputFile):
+def compressImg(srcFile, outFile):
+  outPath, ext = os.path.splitext(outFile)
   try:
-    with Image.open(inputFile) as im:
-      print(im.format, im.size, im.mode)
-      im.save("dist/img/onshape-threadlab/addCustomFeatureTest.webp", quality=80)
+    with Image.open(srcFile) as image:
+      # print(image.format, image.size, image.mode)
+      image.save(f"{outPath}.webp", quality=80)
   except OSError:
-    print("Cannot convert", inputFile)
+    print("Cannot convert", srcFile)
+
+
+def _staticFileProcessor(entries, src, outDir):
+  for entry in entries:
+    srcName = os.path.join(src, entry.name)
+    outName = os.path.join(outDir, entry.name)
+    if entry.is_dir():
+      os.makedirs(outName, exist_ok=True)
+      staticFileProcessor(srcDir=srcName, outDir=outName)
+    else:
+      if srcName.endswith("png"):
+        shutil.copy(srcName, outName)
+        compressImg(srcName, outName)
+      else: 
+        shutil.copy(srcName, outName)
+
+
+def staticFileProcessor(srcDir, outDir):
+  entries = os.scandir(srcDir)
+  _staticFileProcessor(entries=list(entries), src=srcDir, outDir=outDir)
+
 
 # Generate static content
 def copyStaticContent(outputFolder):
   log('Copying static files')
-  shutil.copytree('src/static', outputFolder, dirs_exist_ok=True)
-  compressImg('src/static/img/onshape-threadlab/addCustomFeature.png')
+  staticFileProcessor('src/static/', 'dist/')
 
 
 # Generate index page
