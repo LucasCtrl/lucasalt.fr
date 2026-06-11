@@ -109,7 +109,7 @@ def compressImg(srcFile, outFile):
   outPath, ext = os.path.splitext(outFile)
   try:
     with Image.open(srcFile) as image:
-      # print(image.format, image.size, image.mode)
+      # TODO: If image are greater than 1920x1080, reduce them to 1920x1080 or 1280x720
       image.save(f"{outPath}.webp", quality=80)
   except OSError:
     print("Cannot convert", srcFile)
