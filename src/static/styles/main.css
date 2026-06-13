@@ -14,7 +14,6 @@ Color palette
   --text-color: oklch(87.866% 0.04266 272.281);
   --subtext-color: oklch(87.866% 0.04266 272.281 / 0.7);
   --accent-color: oklch(68.924% 0.13917 231.137);
-  --date-color: oklch(47.651% 0.03405 278.638);
 
   --accent-background-color: oklch(68.924% 0.13917 231.137 / 0.1);
   --table-border-color: oklch(87.866% 0.04266 272.281 / 0.376);
@@ -140,7 +139,7 @@ header ul > li:not(:last-child)::after {
 
 .post-list > div > p {
   margin: 0;
-  color: var(--date-color);
+  color: var(--subtext-color);
 }
 
 /* -------------------- POST CONTENT -------------------- */
@@ -155,12 +154,12 @@ header ul > li:not(:last-child)::after {
 
 .post-content > .post-header > p {
   margin-top: 0;
-  color: var(--date-color);
+  color: var(--subtext-color);
 }
 
 .post-content > .post-header a {
-  color: var(--date-color);
-  border-bottom: 1px dashed var(--date-color);
+  color: var(--subtext-color);
+  border-bottom: 1px dashed var(--subtext-color);
 }
 
 .post-content > p {
@@ -254,7 +253,7 @@ header ul > li:not(:last-child)::after {
 }
 
 .post-content > .highlight .c1 {
-  color: var(--date-color);
+  color: var(--subtext-color);
 }
 
 .post-content > .highlight .nb {
