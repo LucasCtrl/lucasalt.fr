@@ -6,22 +6,24 @@
   <body>
     <div class="container">
       {% render 'navbar' navItems: navItems %}
-
-      <div class="post-content">
-        <div class="post-header">
-          <h1>{{ title }}</h1>
-          <p>
-            <span>
-              {% for tag in tags %}
-              <a href="/tags/{{tag}}/" class="post-tag">#{{tag}}</a>
-              {% endfor %}
-            </span>
-            {% unless tags == empty %} - {% endunless %}
-            <span>Published on {{ publishDate }}</span>
-          </p>
+      
+      <main role="main">
+        <div class="post-content">
+          <div class="post-header">
+            <h1>{{ title }}</h1>
+            <p>
+              <span>
+                {% for tag in tags %}
+                <a href="/tags/{{tag}}/" class="post-tag">#{{tag}}</a>
+                {% endfor %}
+              </span>
+              {% unless tags == empty %} - {% endunless %}
+              <span>Published on {{ publishDate }}</span>
+            </p>
+          </div>
+          {{ postContent }}
         </div>
-        {{ postContent }}
-      </div>
+      </main>
     </div>
   </body>
 </html>

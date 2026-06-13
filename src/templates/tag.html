@@ -6,17 +6,19 @@
   <body>
     <div class="container">
       {% render 'navbar' navItems: navItems %}
-
-      <div class="post-list">
-        <h1>#{{ tag }}</h1>
-        {% assign postList_by_date = postList | sort: 'publishDate' | reverse %}
-        {% for post in postList_by_date %}
-        <div>
-          <a href="/{{ post.uri }}">{{ post.title}}</a>
-          <p>{{ post.publishDate }}</p>
+      
+      <main role="main">
+        <div class="post-list">
+          <h1>#{{ tag }}</h1>
+          {% assign postList_by_date = postList | sort: 'publishDate' | reverse %}
+          {% for post in postList_by_date %}
+          <div>
+            <a href="/{{ post.uri }}">{{ post.title}}</a>
+            <p>{{ post.publishDate }}</p>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
-      </div>
+      </main>
     </div>
   </body>
 </html>

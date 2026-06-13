@@ -1,15 +1,17 @@
-<header>
+<header role="banner">
   <h1>LucasAlt</h1>
-  <ul>
-    <li>
-      <a href="/">Home</a>
-    </li>
-    {% for item in navItems %}
-      {% if item.navbar %}
-        <li>
-          <a href="/{{ item.uri }}">{{ item.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+  <nav role="navigation">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      {% for item in navItems %}
+        {% if item.navbar %}
+          <li>
+            <a href="/{{ item.uri }}">{{ item.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
 </header>

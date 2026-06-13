@@ -73,16 +73,16 @@ header {
   padding: 0 var(--content-padding-x);
 }
 
-header > ul {
+header ul {
   padding: 0;
   list-style: none;
 }
 
-header > ul > li {
+header ul > li {
   display: inline;
 }
 
-header > ul > li:not(:last-child)::after {
+header ul > li:not(:last-child)::after {
   content: "·";
 }
 
