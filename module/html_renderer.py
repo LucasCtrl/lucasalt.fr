@@ -15,11 +15,13 @@ def render_page(content, dstFolder):
   if 'template' in content['metadata']:
     template_name = content['metadata']['template']
   else:
-    template_name = 'index'
+    template_name = 'default'
+
+  if content['metadata']['type'] == 'markdown':
+      content['content'] = markdown.convert(content['content'])
 
   try:
     template = env.get_template(template_name)
-
     try:
       with open(f'{os.getcwd()}/{dstFolder}/{content['metadata']['uri']}.html', 'w') as outFile:
         try:

@@ -20,6 +20,10 @@ def get_content(path):
         metadata['uri'] = uri
       if not 'title' in metadata:
         metadata['title'] = uri[0].upper() + uri[1:]
+      if ext == '.md':
+        metadata['type'] = 'markdown'
+      elif ext == '.html':
+        metadata['type'] = 'html'
 
       if sys.flags.dev_mode:
         # In dev mode, retreive all the content
