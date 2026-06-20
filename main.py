@@ -35,7 +35,7 @@ def generate_static_site():
   for post in posts:
     render_page(post, site_content, "dist/posts")
 
-  logger.log.success("Generation completed!")
+  logger.log.set("Generation completed")
 
 
 if __name__ == "__main__":

@@ -34,6 +34,6 @@ class Logger:
 log = None
 
 
-def init_logger(mode):
+def init_logger(mode="DEFAULT"):
   global log
   log = Logger(mode=mode)

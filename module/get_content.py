@@ -2,6 +2,7 @@ import sys
 import os
 from pathlib import Path
 import frontmatter
+from . import logger
 
 
 def get_content(path):
@@ -20,7 +21,10 @@ def get_content(path):
       if "navbarPos" not in metadata:
         metadata["navbarPos"] = 100
       if "published" not in metadata:
-        metadata["published"] = True
+        metadata["published"] = False
+        logger.log.warning(
+          f"'published' not defined in '{uri}'. Page will not be published."
+        )
       if "uri" not in metadata:
         metadata["uri"] = uri
       if "title" not in metadata:
