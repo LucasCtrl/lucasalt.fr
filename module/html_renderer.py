@@ -8,8 +8,8 @@ from module.utils import create_folder
 markdown = Markdown(extensions=["gfm"], renderer=HTMLRenderer)
 
 
-def render_page(content, navbar_content, dst_folder):
-  logger.log.debug(f"Page content: {content}")
+def render_page(content, site_content, dst_folder):
+  logger.log.debug(f"Page content: {content, site_content}")
   env = Environment(
     loader=FileSystemLoader(f"{os.getcwd()}/src/templates", ext=".html")
   )
@@ -46,8 +46,10 @@ def render_page(content, navbar_content, dst_folder):
       outFile.write(
         template.render(
           page_metadata=content["metadata"],
-          page_content=content["content"],
-          navbar_content=navbar_content,
+          page_content=env.render(
+            content["content"], posts=site_content["posts"]
+          ),
+          navbar_content=site_content["navbar_content"],
         )
       )
       logger.log.success(f"Page generated: {file_path}")

@@ -19,14 +19,21 @@ def generate_static_site():
   create_dist_folder(f"{os.getcwd()}/dist")
 
   pages = get_content("src/pages")
-  navbar_content = []
+  posts = get_content("src/posts")
+  site_content = {"navbar_content": [], "posts": []}
 
   for page in pages:
     if page["metadata"]["navbar"]:
-      navbar_content.append(page["metadata"])
+      site_content["navbar_content"].append(page["metadata"])
+
+  for post in posts:
+    site_content["posts"].append(post["metadata"])
 
   for page in pages:
-    render_page(page, navbar_content, "dist")
+    render_page(page, site_content, "dist")
+
+  for post in posts:
+    render_page(post, site_content, "dist/posts")
 
   logger.log.success("Generation completed!")
 
