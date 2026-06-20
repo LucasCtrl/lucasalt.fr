@@ -12,26 +12,28 @@ def render_page(content, dstFolder):
 
   template_name = None
   
+  # Get template
   if 'template' in content['metadata']:
     template_name = content['metadata']['template']
   else:
     template_name = 'default'
-
-  if content['metadata']['type'] == 'markdown':
-      content['content'] = markdown.convert(content['content'])
-
+  
   try:
     template = env.get_template(template_name)
-    try:
-      with open(f'{os.getcwd()}/{dstFolder}/{content['metadata']['uri']}.html', 'w') as outFile:
-        try:
-          outFile.write(template.render(page_content=content['content']))
-          logger.log.success(f'Page generated: /{content['metadata']['uri']}.html')
-        except:
-          logger.log.error(f'Error while writing file: /{content['metadata']['uri']}.html')
-    except:
-      logger.log.error(f'Error while opening file: /{content['metadata']['uri']}.html')
   except:
-    logger.log.error(f'Template not found: {template_name}.html')
+    return logger.log.error(f'Template not found: {template_name}.html')
+
+  # Convert Markdown content
+  if content['metadata']['type'] == 'markdown':
+    content['content'] = markdown.convert(content['content'])
+
+  # Generate HTML file
+  with open(f'{os.getcwd()}/{dstFolder}/{content['metadata']['uri']}.html', 'w') as outFile:
+    try:
+      outFile.write(template.render(page_metadata=content['metadata'], page_content=content['content']))
+      logger.log.success(f'Page generated: /{content['metadata']['uri']}.html')
+    except:
+      return logger.log.error(f'Error while writing file: /{content['metadata']['uri']}.html')
+  
   
 
