@@ -3,3 +3,4 @@ python-frontmatter
 marko
 marko[codehilite]
 Pillow
+ruff

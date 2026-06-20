@@ -1,47 +1,55 @@
-from . import logger
+import os
 from liquid import Environment, FileSystemLoader
 from marko import Markdown
 from marko.html_renderer import HTMLRenderer
-import os
+from . import logger
 from module.utils import create_folder
 
-markdown = Markdown(extensions=['gfm'], renderer=HTMLRenderer)
+markdown = Markdown(extensions=["gfm"], renderer=HTMLRenderer)
+
 
 def render_page(content, navbar_content, dst_folder):
-  logger.log.debug(f'Page content: {content}')
-  env = Environment(loader=FileSystemLoader(f'{os.getcwd()}/src/templates', ext='.html'))
+  logger.log.debug(f"Page content: {content}")
+  env = Environment(
+    loader=FileSystemLoader(f"{os.getcwd()}/src/templates", ext=".html")
+  )
 
   template_name = None
-  
+
   # Get template
-  if 'template' in content['metadata']:
-    template_name = content['metadata']['template']
+  if "template" in content["metadata"]:
+    template_name = content["metadata"]["template"]
   else:
-    template_name = 'default'
-  
+    template_name = "default"
+
   try:
     template = env.get_template(template_name)
-  except:
-    return logger.log.error(f'Template not found: {template_name}.html')
+  except Exception as e:
+    return logger.log.error(f"Template not found: {e}")
 
   # Convert Markdown content
-  if content['metadata']['type'] == 'markdown':
-    content['content'] = markdown.convert(content['content'])
+  if content["metadata"]["type"] == "markdown":
+    content["content"] = markdown.convert(content["content"])
 
   # Generate HTML file
   file_path = None
-  if content['metadata']['uri'] == 'index':
-    file_path = f'{os.getcwd()}/{dst_folder}/index.html'
+  if content["metadata"]["uri"] == "index":
+    file_path = f"{os.getcwd()}/{dst_folder}/index.html"
   else:
-    create_folder(f'{os.getcwd()}/{dst_folder}/{content['metadata']['uri']}')
-    file_path = f'{os.getcwd()}/{dst_folder}/{content['metadata']['uri']}/index.html'
+    create_folder(f"{os.getcwd()}/{dst_folder}/{content['metadata']['uri']}")
+    file_path = (
+      f"{os.getcwd()}/{dst_folder}/{content['metadata']['uri']}/index.html"
+    )
 
-  with open(file_path, 'w') as outFile:
+  with open(file_path, "w") as outFile:
     try:
-      outFile.write(template.render(page_metadata=content['metadata'], page_content=content['content'], navbar_content=navbar_content))
-      logger.log.success(f'Page generated: {file_path}')
-    except:
-      return logger.log.error(f'Error while writing file: {file_path}')
-  
-  
-
+      outFile.write(
+        template.render(
+          page_metadata=content["metadata"],
+          page_content=content["content"],
+          navbar_content=navbar_content,
+        )
+      )
+      logger.log.success(f"Page generated: {file_path}")
+    except Exception as e:
+      return logger.log.error(f"Error while writing file: {e}")
