@@ -3,10 +3,11 @@ from liquid import Environment, FileSystemLoader
 from marko import Markdown
 from marko.html_renderer import HTMLRenderer
 import os
+from module.utils import create_folder
 
 markdown = Markdown(extensions=['gfm'], renderer=HTMLRenderer)
 
-def render_page(content, navbar_content, dstFolder):
+def render_page(content, navbar_content, dst_folder):
   logger.log.debug(f'Page content: {content}')
   env = Environment(loader=FileSystemLoader(f'{os.getcwd()}/src/templates', ext='.html'))
 
@@ -28,12 +29,19 @@ def render_page(content, navbar_content, dstFolder):
     content['content'] = markdown.convert(content['content'])
 
   # Generate HTML file
-  with open(f'{os.getcwd()}/{dstFolder}/{content['metadata']['uri']}.html', 'w') as outFile:
+  file_path = None
+  if content['metadata']['uri'] == 'index':
+    file_path = f'{os.getcwd()}/{dst_folder}/index.html'
+  else:
+    create_folder(f'{os.getcwd()}/{dst_folder}/{content['metadata']['uri']}')
+    file_path = f'{os.getcwd()}/{dst_folder}/{content['metadata']['uri']}/index.html'
+
+  with open(file_path, 'w') as outFile:
     try:
       outFile.write(template.render(page_metadata=content['metadata'], page_content=content['content'], navbar_content=navbar_content))
-      logger.log.success(f'Page generated: /{content['metadata']['uri']}.html')
+      logger.log.success(f'Page generated: {file_path}')
     except:
-      return logger.log.error(f'Error while writing file: /{content['metadata']['uri']}.html')
+      return logger.log.error(f'Error while writing file: {file_path}')
   
   
 
