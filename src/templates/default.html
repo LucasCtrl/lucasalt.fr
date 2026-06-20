@@ -5,10 +5,11 @@
   </head>
   <body>
     <div class="container">
-      <!-- {% render 'navbar' navItems: navItems %} -->
+      {% render 'navbar' navbar_content: navbar_content %}
 
       <main role="main">
         {{ page_content }}
+        {{ page_metadata }}
       </main>
     </div>
   </body>

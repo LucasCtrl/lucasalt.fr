@@ -30,9 +30,14 @@ def generate_static_site():
   create_dist_folder('dist')
 
   pages = get_content('src/pages')
+  navbar_content = []
 
   for page in pages:
-    render_page(page, 'dist')
+    if page['metadata']['navbar']:
+      navbar_content.append(page['metadata'])
+
+  for page in pages:
+    render_page(page, navbar_content, 'dist')
   
   logger.log.success("Generation completed!")
 

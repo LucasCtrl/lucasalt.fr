@@ -5,12 +5,11 @@
       <li>
         <a href="/">Home</a>
       </li>
+      {% assign navItems = navbar_content | sort: "navbarPos" %}
       {% for item in navItems %}
-        {% if item.navbar %}
-          <li>
-            <a href="/{{ item.uri }}">{{ item.title }}</a>
-          </li>
-        {% endif %}
+        <li>
+          <a href="/{{ item.uri }}">{{ item.title }}</a>
+        </li>
       {% endfor %}
     </ul>
   </nav>

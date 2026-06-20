@@ -14,6 +14,10 @@ def get_content(path):
       metadata, content = frontmatter.parse(f.read())
 
       # Add required metadata
+      if not 'navbar' in metadata:
+        metadata['navbar'] = False
+      if not 'navbarPos' in metadata:
+        metadata['navbarPos'] = 100
       if not 'published' in metadata:
         metadata['published'] = True
       if not 'uri' in metadata:

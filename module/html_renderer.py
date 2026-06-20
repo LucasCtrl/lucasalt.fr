@@ -6,7 +6,7 @@ import os
 
 markdown = Markdown(extensions=['gfm'], renderer=HTMLRenderer)
 
-def render_page(content, dstFolder):
+def render_page(content, navbar_content, dstFolder):
   logger.log.debug(f'Page content: {content}')
   env = Environment(loader=FileSystemLoader(f'{os.getcwd()}/src/templates', ext='.html'))
 
@@ -30,7 +30,7 @@ def render_page(content, dstFolder):
   # Generate HTML file
   with open(f'{os.getcwd()}/{dstFolder}/{content['metadata']['uri']}.html', 'w') as outFile:
     try:
-      outFile.write(template.render(page_metadata=content['metadata'], page_content=content['content']))
+      outFile.write(template.render(page_metadata=content['metadata'], page_content=content['content'], navbar_content=navbar_content))
       logger.log.success(f'Page generated: /{content['metadata']['uri']}.html')
     except:
       return logger.log.error(f'Error while writing file: /{content['metadata']['uri']}.html')
