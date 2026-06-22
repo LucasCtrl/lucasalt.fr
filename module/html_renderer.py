@@ -5,7 +5,35 @@ from marko.html_renderer import HTMLRenderer
 from . import logger
 from module.utils import create_folder
 
-markdown = Markdown(extensions=["gfm"], renderer=HTMLRenderer)
+
+class CustomMarkoRenderer(HTMLRenderer):
+  def render_heading(self, element):
+    level = element.level
+    title = self.render_children(element)
+    id = title.lower().replace(" ", "_")
+    return f"<h{level} id='{id}'>{title}</h{level}>"
+
+  def render_image(self, element):
+    imgPath = element.dest
+    path, ext = os.path.splitext(imgPath)
+
+    alt_text = self.render_children(element)
+
+    html = (
+      f"<figure>\n"
+      f'  <a href="{imgPath}" target="_blank">\n'
+      f'    <img src="{path}.webp" alt="{alt_text}" />\n'
+      f"  </a>\n"
+      f"  <figcaption>{alt_text}</figcaption>\n"
+      f"</figure>"
+    )
+
+    return html
+
+
+markdown = Markdown(
+  extensions=["gfm", "footnote", "codehilite"], renderer=CustomMarkoRenderer
+)
 
 
 def render_page(content, site_content, dst_folder):
