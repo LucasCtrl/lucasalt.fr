@@ -2,6 +2,7 @@ import os
 from module import logger
 from module.get_content import get_content
 from module.html_renderer import render_page
+from module.static_processor import static_processor
 from module.utils import delete_folder, create_folder
 
 logger.init_logger(mode="DEBUG")
@@ -34,6 +35,8 @@ def generate_static_site():
 
   for post in posts:
     render_page(post, site_content, "dist/posts")
+
+  static_processor("src/static", "dist")
 
   logger.log.set("Generation completed")
 
