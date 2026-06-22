@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 from PIL import Image
 from . import logger
@@ -19,6 +20,39 @@ def img_compressor(src, dst):
     logger.log.error(f"Cannot convert: {src}")
 
 
+def css_minifier(src, dst):
+  """Minify CSS by removing comments, whitespace, and optimizing syntax."""
+  css = None
+  with open(src) as f:
+    css = f.read()
+
+  # Step 1: Remove all comments (/* ... */)
+  css = re.sub(r"/\*[\s\S]*?\*/", "", css)
+
+  # Step 2: Remove whitespace and normalize syntax
+  css = re.sub(r"\s+", " ", css).strip()  # Collapse whitespace and trim
+  css = re.sub(r" {", "{", css)  # Remove space before "{"
+  css = re.sub(r"{ ", "{", css)  # Remove space after "{"
+  css = re.sub(r" :", ":", css)  # Remove space before ":"
+  css = re.sub(r": ", ":", css)  # Remove space after ":"
+  css = re.sub(r" ;", ";", css)  # Remove space before ";"
+  css = re.sub(r"; ", ";", css)  # Remove space after ";"
+  css = re.sub(r" ,", ",", css)  # Remove space before ","
+  css = re.sub(r", ", ",", css)  # Remove space after ","
+
+  # Step 3: Shorten 6-character hex colors to 3-character (e.g., #aabbcc → #abc)
+  css = re.sub(
+    r"#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3", r"#\1\2\3", css
+  )
+
+  # Step 4: Remove redundant semicolons before closing braces
+  css = re.sub(r";}", "}", css)
+
+  # Step 5: write output file
+  with open(dst, "a") as f:
+    f.write(css)
+
+
 def _static_processor(entries, src, dst):
   for entry in entries:
     src_file = os.path.join(src, entry.name)
@@ -31,9 +65,10 @@ def _static_processor(entries, src, dst):
     else:
       # Otherwise, it's a file, process it
       if src_file.endswith("png") or src_file.endswith("jpg"):
-        # Images goes into the image processor
         shutil.copy(src_file, dst_file)
         img_compressor(src_file, dst_file)
+      elif src_file.endswith("css"):
+        css_minifier(src_file, dst_file)
       else:
         shutil.copy(src_file, dst_file)
 
