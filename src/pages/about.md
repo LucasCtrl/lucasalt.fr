@@ -1,6 +1,7 @@
 ---
 title: About
 navbar: true
+navbarPos: 2
 published: true
 ---
 

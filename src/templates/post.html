@@ -1,28 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% render 'head', title: title %}
+    {% render 'head' title: page_metadata.title %}
   </head>
   <body>
     <div class="container">
-      {% render 'navbar' navItems: navItems %}
-      
+      {% render 'navbar' navbar_content: navbar_content %}
+
       <main role="main">
-        <div class="post-content">
-          <div class="post-header">
-            <h1>{{ title }}</h1>
-            <p>
-              <span>
-                {% for tag in tags %}
-                <a href="/tags/{{tag}}/" class="post-tag">#{{tag}}</a>
-                {% endfor %}
-              </span>
-              {% unless tags == empty %} - {% endunless %}
-              <span>Published on {{ publishDate }}</span>
-            </p>
-          </div>
-          {{ postContent }}
-        </div>
+        {% render 'post-header' page_metadata: page_metadata %}
+        {{ page_content }}
       </main>
     </div>
   </body>

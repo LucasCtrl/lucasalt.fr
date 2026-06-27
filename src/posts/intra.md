@@ -1,5 +1,6 @@
 ---
 title: "Intra"
+template: post
 publishDate: 2019-02-03
 published: false
 tags:

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% render 'head' %}
+    {% render 'head' title: page_metadata.title %}
   </head>
   <body>
     <div class="container">
@@ -9,7 +9,6 @@
 
       <main role="main">
         {{ page_content }}
-        {{ page_metadata }}
       </main>
     </div>
   </body>

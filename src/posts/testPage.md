@@ -1,5 +1,6 @@
 ---
 title: "Test page"
+template: post
 publishDate: 2025-09-29
 published: false
 tags:
@@ -50,10 +51,10 @@ Enim exercitation consectetur mollit dolore dolore laboris commodo ipsum sunt Lo
 
 ## Tables
 
-| Company                      | Contact          | Country |
-| :--------------------------- | :--------------- | ------: |
-| Alfreds Futterkiste          | Maria Anders     | Germany |
-| Island Trading               | Helen Bennett    |      UK |
+| Company                      |     Contact      | Country |
+| :--------------------------- | :--------------: | ------: |
+| Alfreds Futterkiste          |   Maria Anders   | Germany |
+| Island Trading               |  Helen Bennett   |      UK |
 | Magazzini Alimentari Riuniti | Giovanni Rovelli |   Italy |
 
 ## Links

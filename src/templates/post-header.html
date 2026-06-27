@@ -1,0 +1,14 @@
+
+<div class="post-header">
+  <h1>{{ page_metadata.title }}</h1>
+  <p>
+    <span>
+      {% for tag in page_metadata.tags %}
+      <!-- <a href="/tags/{{tag}}/" class="post-tag">#{{tag}}</a> -->
+       #{{ tag }}
+      {% endfor %}
+    </span>
+    {% unless tags == empty %} - {% endunless %}
+    <span>Published on {{ page_metadata.publishDate }}</span>
+  </p>
+</div>

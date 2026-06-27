@@ -1,5 +1,6 @@
 ---
 title: "Hello world!"
+template: post
 publishDate: 2018-12-17
 published: true
 tags:

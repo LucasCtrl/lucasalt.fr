@@ -1,6 +1,7 @@
 ---
 title: Now
 navbar: true
+navbarPos: 1
 published: true
 ---
 

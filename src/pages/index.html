@@ -1,16 +1,14 @@
 ---
 title: 'Home'
+published: true
 ---
 
-<h1>Hello world!</h1>
-
-{{ posts }}
-
-<ul>
+<div class="post-list">
   {% assign posts_by_date = posts | sort: 'publishDate' | reverse %}
   {% for post in posts_by_date %}
-  <li>
-    <a href="posts/{{post.uri}}">{{ post.title}}</a>
-  </li>
+  <div>
+    <a href="posts/{{ post.uri }}">{{ post.title}}</a>
+    <p>{{ post.publishDate }}</p>
+  </div>
   {% endfor %}
-</ul>
+</div>

@@ -1,5 +1,6 @@
 ---
 title: "3D modeling threads in OnShape"
+template: post
 publishDate: 2026-04-18
 published: true
 tags:

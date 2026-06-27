@@ -86,25 +86,34 @@ header ul > li:not(:last-child)::after {
 }
 
 /* -------------------- PAGE CONTENT -------------------- */
-.page-content > p {
+main > p {
   padding: 0 var(--content-padding-x);
 
   text-align: justify;
   line-height: 1.625;
 }
 
-.page-content > h1,
-.page-content > h2,
-.page-content > h3,
-.page-content > h4,
-.page-content > h5,
-.page-content > h6 {
+main > h1,
+main > h2,
+main > h3,
+main > h4,
+main > h5,
+main > h6 {
   padding: 0 var(--content-padding-x);
 
   line-height: 1.625;
 }
 
-.page-content > blockquote {
+/* ----- LIST ----- */
+main > ol,
+main > ul {
+  padding: 0 calc(var(--content-padding-x) + 40px);
+
+  line-height: 1.625;
+}
+
+/* ----- BLOCKQUOTE ----- */
+main > blockquote {
   margin: 0 var(--content-padding-x);
 
   padding: 16px 40px;
@@ -112,97 +121,12 @@ header ul > li:not(:last-child)::after {
   border-left: 4px solid var(--accent-color);
 }
 
-.page-content > blockquote > p {
+main > blockquote p {
   margin: 0;
 }
 
-.page-content > ol,
-.page-content > ul {
-  padding: 0 calc(var(--content-padding-x) + 40px);
-}
-
-/* -------------------- POST LIST -------------------- */
-.post-list {
-  padding: 0 var(--content-padding-x);
-}
-
-.post-list > div {
-  display: flex;
-  align-items: baseline;
-  gap: 3em;
-  margin-bottom: 1em;
-}
-
-.post-list > div > a {
-  font-size: 1.5em;
-}
-
-.post-list > div > p {
-  margin: 0;
-  color: var(--subtext-color);
-}
-
-/* -------------------- POST CONTENT -------------------- */
-.post-content > .post-header {
-  margin-bottom: 64px;
-  padding: 0 var(--content-padding-x);
-}
-
-.post-content > .post-header > h1 {
-  margin-bottom: 8px;
-}
-
-.post-content > .post-header > p {
-  margin-top: 0;
-  color: var(--subtext-color);
-}
-
-.post-content > .post-header a {
-  color: var(--subtext-color);
-  border-bottom: 1px dashed var(--subtext-color);
-}
-
-.post-content > p {
-  padding: 0 var(--content-padding-x);
-
-  text-align: justify;
-  line-height: 1.625;
-}
-
-.post-content > h1,
-.post-content > h2,
-.post-content > h3,
-.post-content > h4,
-.post-content > h5,
-.post-content > h6 {
-  padding: 0 var(--content-padding-x);
-
-  line-height: 1.625;
-}
-
-.post-content > ol,
-.post-content > ul {
-  padding: 0 calc(var(--content-padding-x) + 40px);
-}
-
-.post-content > ol li,
-.post-content > ul li {
-  line-height: 1.625;
-}
-
-.post-content > blockquote {
-  margin: 0 var(--content-padding-x);
-
-  padding: 16px 40px;
-  background-color: var(--accent-background-color);
-  border-left: 4px solid var(--accent-color);
-}
-
-.post-content > blockquote > p {
-  margin: 0;
-}
-
-.post-content > table {
+/* ----- TABLE ----- */
+main > table {
   margin: 0 var(--content-padding-x);
 
   width: calc(100% - (var(--container-max-width) - var(--content-max-width)));
@@ -210,89 +134,134 @@ header ul > li:not(:last-child)::after {
   border: 2px solid var(--table-border-color);
 }
 
-.post-content > table thead {
+main > table thead {
   border-bottom: 2px solid var(--table-border-color);
 }
 
-.post-content > table th,
-.post-content > table td {
+main > table th,
+main > table td {
   padding: 4px 8px;
   border: 1px solid var(--table-border-color);
 }
 
-.post-content > table th:not(:last-child),
-.post-content > table td:not(:last-child) {
+main > table th:not(:last-child),
+main > table td:not(:last-child) {
   border-right: 2px solid var(--table-border-color);
 }
 
-.post-content > p > code,
-.post-content li > code {
+/* ----- CODE ----- */
+p > code,
+li > code {
   padding: 2px 4px;
   background-color: var(--accent-background-color);
 }
 
-.post-content > pre,
-.post-content > .highlight {
+main > pre,
+main > .highlight {
   margin: 0 var(--content-padding-x);
   padding: 16px 24px;
   background-color: var(--accent-background-color);
 }
 
-.post-content > .highlight > pre {
+main > .highlight > pre {
   margin: 0;
 }
 
-.post-content > .highlight .k,
-.post-content > .highlight .ow {
+main > .highlight .k,
+main > .highlight .ow {
   color: var(--theme-red);
 }
 
-.post-content > .highlight .o,
-.post-content > .highlight .p {
+main > .highlight .o,
+main > .highlight .p {
   color: var(--theme-dark-orange);
 }
 
-.post-content > .highlight .c1 {
+main > .highlight .c1 {
   color: var(--subtext-color);
 }
 
-.post-content > .highlight .nb {
+main > .highlight .nb {
   color: var(--theme-light-blue)
 }
 
-.post-content > .highlight .s1,
-.post-content > .highlight .s2 {
+main > .highlight .s1,
+main > .highlight .s2 {
   color: var(--theme-green)
 }
 
-.post-content > .highlight .m,
-.post-content > .highlight .n,
-.post-content > .highlight .nf,
-.post-content > .highlight .nv {
+main > .highlight .m,
+main > .highlight .n,
+main > .highlight .nf,
+main > .highlight .nv {
   color: var(--theme-light-orange)
 }
 
-.post-content figure {
+main > figure {
   margin: 0;
   text-align: center;
 }
 
-.post-content figure > a {
+main > figure > a {
   text-decoration: none;
   border-bottom: none;
 }
 
-.post-content figure > a > img {
+main > figure > a > img {
   width: 100%;
   max-width: fit-content;
 }
 
-.post-content figure > figcaption {
+main > figure > figcaption {
   padding-top: 4px;
   color: var(--subtext-color);
   /* font-size: 0.9em; */
 }
 
-.post-content > .footnotes {
+main > .footnotes {
+  margin-top: 64px;
   padding: 0 var(--content-padding-x);
+}
+
+/* -------------------- POST LIST -------------------- */
+.post-list {
+  padding: 0 var(--content-padding-x);
+}
+
+.post-list div {
+  display: flex;
+  align-items: baseline;
+  gap: 3em;
+  margin-bottom: 1em;
+}
+
+.post-list div a {
+  font-size: 1.5em;
+}
+
+.post-list div p {
+  margin: 0;
+
+  color: var(--subtext-color);
+}
+
+/* -------------------- POST HEADER -------------------- */
+
+.post-header {
+  margin-bottom: 64px;
+  padding: 0 var(--content-padding-x);
+}
+
+.post-header > h1 {
+  margin-bottom: 8px;
+}
+
+.post-header > p {
+  margin-top: 0;
+  color: var(--subtext-color);
+}
+
+.post-header a {
+  color: var(--subtext-color);
+  border-bottom: 1px dashed var(--subtext-color);
 }
