@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% render 'head' %}
+  </head>
+  <body>
+    <div class="container">
+      {% render 'navbar' navItems: navItems %}
+
+      <main role="main">
+        <div class="post-list">
+          {% assign projectList_by_date = projectList | sort: 'publishDate' | reverse %}
+          {% for project in projectList_by_date %}
+          <div>
+            <a href="/{{ project.uri }}">{{ project.title}}</a>
+            <p>{{ project.publishDate }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

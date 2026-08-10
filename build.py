@@ -35,7 +35,9 @@ class CustomMarkoRenderer(HTMLRenderer):
     return html
 
 
-markdown = Markdown(extensions=['gfm', 'footnote', 'codehilite'], renderer=CustomMarkoRenderer)
+markdown = Markdown(
+  extensions=['gfm', 'footnote', 'codehilite'], renderer=CustomMarkoRenderer
+)
 
 
 def log(message):
@@ -75,10 +77,41 @@ def getPosts():
   return postList
 
 
+# Get all projects listed in 'projects' folder
+def getProjects():
+  projectFiles = Path('src/projects').glob('*.md')
+  projectList = []
+  for projectFile in projectFiles:
+    with open(projectFile) as f:
+      metadata, content = frontmatter.parse(f.read())
+      if sys.flags.dev_mode:
+        projectList.append(
+          {
+            'title': metadata['title'],
+            'publishDate': metadata['publishDate'],
+            'uri': f'projects/{projectFile.stem}',
+            'content': content,
+          }
+        )
+      else:
+        if metadata['published']:
+          projectList.append(
+            {
+              'title': metadata['title'],
+              'publishDate': metadata['publishDate'],
+              'uri': f'projects/{projectFile.stem}',
+              'content': content,
+            }
+          )
+
+  # print(projectList)
+  return projectList
+
+
 # Get all pages listed in 'pages' folder
 def getPages():
   pageFiles = Path('src/pages').glob('*.md')
-  pageList = []
+  pageList = [{'title': 'Projects', 'uri': 'projects', 'navbar': True, 'content': ''}]
   for pageFile in pageFiles:
     with open(pageFile) as f:
       metadata, content = frontmatter.parse(f.read())
@@ -111,13 +144,13 @@ def compressImg(srcFile, outFile):
     with Image.open(srcFile) as image:
       if image.width > 1280 or image.height > 720:
         imgRatio = image.width / image.height
-        reduced_size = (1280, int(1280/imgRatio))
+        reduced_size = (1280, int(1280 / imgRatio))
         resized_image = image.resize(size=reduced_size)
-        resized_image.save(f"{outPath}.webp", quality=80)
+        resized_image.save(f'{outPath}.webp', quality=80)
       else:
-        image.save(f"{outPath}.webp", quality=80)
+        image.save(f'{outPath}.webp', quality=80)
   except OSError:
-    print("Cannot convert", srcFile)
+    print('Cannot convert', srcFile)
 
 
 def _staticFileProcessor(entries, src, outDir):
@@ -128,10 +161,10 @@ def _staticFileProcessor(entries, src, outDir):
       os.makedirs(outName, exist_ok=True)
       staticFileProcessor(srcDir=srcName, outDir=outName)
     else:
-      if srcName.endswith("png") or srcName.endswith("jpg"):
+      if srcName.endswith('png') or srcName.endswith('jpg'):
         shutil.copy(srcName, outName)
         compressImg(srcName, outName)
-      else: 
+      else:
         shutil.copy(srcName, outName)
 
 
@@ -156,12 +189,26 @@ def createIndexPage(outputFolder):
     file.write(template.render(navItems=getPages(), postList=getPosts()))
 
 
+# Generate index page
+def createProjectPage(outputFolder):
+  env = Environment(loader=FileSystemLoader('src/templates', ext='.html'))
+  template = env.get_template('projects')
+
+  log('Creating projects.html')
+  if not os.path.exists('dist/projects'):
+    os.makedirs('dist/projects')
+  with open(f'{outputFolder}/projects/index.html', 'w') as file:
+    file.write(template.render(navItems=getPages(), projectList=getProjects()))
+
+
 # Generate pages
 def createPages(outputFolder):
   env = Environment(loader=FileSystemLoader('src/templates', ext='.html'))
   template = env.get_template('page')
 
   for page in getPages():
+    if page['content'] == '':
+      continue
     pageUri = page['uri']
     pageTitle = page['title']
     pageContent = markdown.convert(page['content'])
@@ -171,7 +218,9 @@ def createPages(outputFolder):
 
     log(f'Creating {pageUri}/index.html')
     with open(f'{outputFolder}/{pageUri}/index.html', 'w') as file:
-      file.write(template.render(navItems=getPages(), pageContent=pageContent, title=pageTitle))
+      file.write(
+        template.render(navItems=getPages(), pageContent=pageContent, title=pageTitle)
+      )
 
 
 # Generate posts pages
@@ -198,6 +247,32 @@ def createPostsPage(outputFolder):
           title=postTitle,
           publishDate=postPublishDate,
           tags=postTags,
+        )
+      )
+
+
+# Generate projects pages
+def createProjectsPage(outputFolder):
+  env = Environment(loader=FileSystemLoader('src/templates', ext='.html'))
+  template = env.get_template('project')
+
+  for project in getProjects():
+    projectUri = project['uri']
+    projectTitle = project['title']
+    projectPublishDate = project['publishDate']
+    projectContent = markdown.convert(project['content'])
+
+    if not os.path.exists(f'dist/{projectUri}'):
+      os.makedirs(f'dist/{projectUri}')
+
+    log(f'Creating {projectUri}/index.html')
+    with open(f'{outputFolder}/{projectUri}/index.html', 'w') as file:
+      file.write(
+        template.render(
+          navItems=getPages(),
+          projectContent=projectContent,
+          title=projectTitle,
+          publishDate=projectPublishDate,
         )
       )
 
@@ -230,7 +305,9 @@ def createTagPages(outputFolder):
 
     log(f'Creating tags/{tag}/index.html')
     with open(f'{outputFolder}/tags/{tag}/index.html', 'w') as file:
-      file.write(template.render(navItems=getPages(), title=f'#{tag}', tag=tag, postList=posts))
+      file.write(
+        template.render(navItems=getPages(), title=f'#{tag}', tag=tag, postList=posts)
+      )
 
 
 def main():
@@ -246,7 +323,9 @@ def main():
 
   copyStaticContent(outputFolder)
   createIndexPage(outputFolder)
+  createProjectPage(outputFolder)
   createPostsPage(outputFolder)
+  createProjectsPage(outputFolder)
   createPages(outputFolder)
   createTagPages(outputFolder)
 

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% render 'head', title: title %}
+  </head>
+  <body>
+    <div class="container">
+      {% render 'navbar' navItems: navItems %}
+      
+      <main role="main">
+        <div class="post-content">
+          <div class="post-header">
+            <h1>{{ title }}</h1>
+            <p>Published on {{ publishDate }}</p>
+          </div>
+          {{ projectContent }}
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
