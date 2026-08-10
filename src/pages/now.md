@@ -4,11 +4,11 @@ navbar: true
 published: true
 ---
 
-> Last updated on June 10, 2026
+> Last updated on August 10, 2026
 
 # SKG
 
-SKG or _Stacked Keyboard Generator_ is a CAD and CAM software that I developed for my CO2 laser machine. Drawing a mechanical keyboard made of acrylic sheets is time consuming, especially when the design is almost the same for keyboard to keyboard. So I developed an application to generated the production files automatically. As a "side-project" or in the conjunction, I developed a [3D viewer](https://ek-viewer.pages.dev/?type=stacked&keyboardId=34&tc=ffa500&tt=transparent&bc=ffa500&bt=transparent&swc=32cd32&sdc=32cd32) that can be embedded on a website.
+SKG or _Stacked Keyboard Generator_ is a CAD and CAM software that I developed for my CO2 laser machine. Drawing a mechanical keyboard made out of acrylic sheets is time consuming, especially when the design is almost the same from keyboard to keyboard. So I developed an application to generate the production files automatically. As a "side-project" or in the conjunction, I developed a [3D viewer](https://ek-viewer.pages.dev/?type=stacked&keyboardId=34&tc=ffa500&tt=transparent&bc=ffa500&bt=transparent&swc=32cd32&sdc=32cd32) that can be embedded on a website.
 
 # Readings
 
@@ -26,6 +26,14 @@ A good book, easy to read. The plot feels a little bit rushed by the end and I w
 
 ## Artificial Condition, The Murderbot Diaries - Martha Wells
 
+> _Finished on June 20, 2026_.
+
+Like the previous one, a bit rush be the end.
+
 # Gaming
 
-As Forza Horizon 6 just came out, it's gonna be the main game I'll play in the following days/weeks/months. I also play LinkedIn mini-games, [Nonogram Katana](https://nonograms-katana.fandom.com/wiki/Nonograms_Katana_Wiki), and [CluesBySam](https://cluesbysam.com/) daily. From time to time, I also play [Balatro](https://www.playbalatro.com/).
+Season 4 of Battlefield 6 was releasekd last week and some friends dragged me back on it. The game is back in my rotation for now.
+
+Forza Horizon 6 is still in the rotation but I think I reached the end. All the missions of the "story" are done, most of the races and PR stunts are completed with 3 stars, ... The only thing that's left are the car collection. Collecting and taking pictures of all of them will be near impossible to do 😅 I'll still continue to play for the Festival Playlist that is somewhat enjoyable when you need to play atypic cars on some circuits.
+
+I also play LinkedIn mini-games, [Nonogram Katana](https://nonograms-katana.fandom.com/wiki/Nonograms_Katana_Wiki), and [CluesBySam](https://cluesbysam.com/) daily. From time to time, I also play [Balatro](https://www.playbalatro.com/).
